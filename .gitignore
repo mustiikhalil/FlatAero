@@ -1,2 +1,14 @@
 **/xcuserdata/
 **/xcshareddata/
+**/CMakeCache.txt
+**/CMakeFiles
+**/CMakeScripts
+flat/**/*.xcodeproj
+flat/flatbuffers/
+flat/flatbuffers-build
+**/cmake_install.cmake
+**/FLAT.build
+**/Debug
+**/CPackConfig.cmake
+**/CPackSourceConfig.cmake
+**/CTestTestfile.cmake
