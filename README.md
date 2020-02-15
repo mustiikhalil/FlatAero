@@ -7,6 +7,9 @@ This is built by the help of the amazing community of [PixelogicDev](https://twi
 The following project would preferable only import [flatbuffers](https://github.com/google/flatbuffers), meaning we would be building it completely on apples frameworks.
 A bit ambitions but I think it can be done until we get to the console^2 part.
 
+Architecture:
+- MVP (Model view presenter)
+
 we would be using:
 - NSOperations for async code
 - Cocoa for UI
