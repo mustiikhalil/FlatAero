@@ -12,7 +12,7 @@ Architecture:
 
 we would be using:
 - NSOperations for async code
-- Cocoa for UI
+- SwiftUI/Cocoa for UI
 - Use PDFs for resources, which makes everything scalable
 
 # Baby steps
