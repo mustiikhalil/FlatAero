@@ -13,9 +13,11 @@ set(FLATBUFFERS_SRC_DIR flatbuffers)
 set(FLAT_Library_SRCS
   src/flat/flat.hpp
   src/flat/flat.cpp
+  src/flat/JSON.h
 )
 
 set(Flat_Tests_SRCS
+  tests/user_generated.h
   tests/testflat.cpp
 )
 

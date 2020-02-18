@@ -1,7 +1,3 @@
-#include <string>
+#include "JSON.h"
 
-#include "flatbuffers/idl.h"
-
-namespace flat {
-std::string printer();
-}
+namespace flat {}

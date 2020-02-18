@@ -1,0 +1,8 @@
+table User {
+    name: string;
+    age: uint;
+    email: string;
+    loggedIn: bool;
+}
+
+root_type User;
