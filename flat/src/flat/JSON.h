@@ -3,12 +3,12 @@
 
 #include <string>
 
-#include "flatbuffers/idl.h"
+#include "variables.h"
 
 namespace flat {
 class JSON {
  private:
-  flatbuffers::Parser parser;
+  Parser parser;
 
  public:
   JSON(const std::string &table) { parser.Parse(table.c_str()); }

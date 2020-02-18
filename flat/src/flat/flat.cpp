@@ -1,7 +1,3 @@
-#include "flat.hpp"
-
-#include <string>
-
-#include "flatbuffers/idl.h"
+#include "flat.h"
 
 namespace flat {}

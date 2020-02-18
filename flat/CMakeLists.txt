@@ -4,20 +4,22 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include(CheckCXXSymbolExists)
 
 project(FLAT)
-option(FLAT_CODE_COVERAGE "Enable the code coverage build option." ON)
+option(FLAT_CODE_COVERAGE "Enable the code coverage build option." OFF)
 option(FLAT_BUILD_FLATLIB "Enable the build of the flatbuffers library"
        ON)
 option(FLAT_BUILD_TESTS "Enable the build of tests and samples." ON)
 
 set(FLATBUFFERS_SRC_DIR flatbuffers)
 set(FLAT_Library_SRCS
-  src/flat/flat.hpp
+  src/flat/variables.h
+  src/flat/flat.h
   src/flat/flat.cpp
   src/flat/JSON.h
 )
 
 set(Flat_Tests_SRCS
   tests/user_generated.h
+  tests/numbers_generated.h
   tests/testflat.cpp
 )
 
