@@ -53,7 +53,8 @@ class FLAT {
   }
 
   std::string ReadScalarFields(const FieldDef fd, const Table *table,
-                               const StructDef &struct_def, const bool fixed) {
+                               const StructDef &struct_def,
+                               const uint8_t *prev_val, const bool fixed) {
     switch (fd.value.type.base_type) {
       case flatbuffers::BASE_TYPE_NONE:
         return GenField<uint8_t>(fd, table, fixed);
@@ -78,32 +79,62 @@ class FLAT {
         return GenField<float>(fd, table, fixed);
       case flatbuffers::BASE_TYPE_DOUBLE:
         return GenField<double>(fd, table, fixed);
-      default: return "UNKNOWN";
+      default: return GetOffset(fd, table, struct_def, prev_val, fixed);
     }
   }
 
-  std::string ReadFields(const FieldDef fd, const Table *table,
-                         const StructDef &struct_def, const bool fixed) {
+  std::string GetOffset(const FieldDef fd, const Table *table,
+                        const StructDef &struct_def, const uint8_t *prev_val,
+                        const bool fixed) {
+    const void *val = nullptr;
+    if (fixed) {
+      val = reinterpret_cast<const Struct *>(table)->GetStruct<const void *>(
+          fd.value.offset);
+    } else {
+      val = IsStruct(fd.value.type)
+                ? table->GetStruct<const void *>(fd.value.offset)
+                : table->GetPointer<const void *>(fd.value.offset);
+    }
+    return ReadFields(val, fd.value.type, prev_val, -1);
+  }
+
+  std::string ReadFields(const void *val, const Type &type,
+                         const uint8_t *prev_val,
+                         flatbuffers::soffset_t vector_index) {
     std::string text;
-    switch (fd.value.type.base_type) {
+    switch (type.base_type) {
       case flatbuffers::BASE_TYPE_STRING: {
-        auto val = table->GetPointer<const void *>(fd.value.offset);
         auto s = reinterpret_cast<const String *>(val);
         flatbuffers::EscapeString(s->c_str(), s->size(), &text, true, true);
         return text;
       }
       case flatbuffers::BASE_TYPE_STRUCT: {
         std::string text = "\n";
-        auto val = flatbuffers::IsStruct(fd.value.type)
-                       ? table->GetStruct<const void *>(fd.value.offset)
-                       : table->GetPointer<const void *>(fd.value.offset);
-        std::string type =
-            flatbuffers::IsStruct(fd.value.type) ? "Struct" : "Table";
-        GenerateBody(reinterpret_cast<const Table *>(val),
-                     *fd.value.type.struct_def, text, type);
+        std::string type_ = flatbuffers::IsStruct(type) ? "Struct" : "Table";
+        incrementIndentation();
+        GenerateBody(reinterpret_cast<const Table *>(val), *type.struct_def,
+                     text, type_);
+        decrementIndentation();
         return text.substr(0, text.size() - 1) + "";
       }
-      default: return ReadScalarFields(fd, table, struct_def, fixed);
+      case flatbuffers::BASE_TYPE_UNION: {
+        auto union_type_byte = *prev_val;
+        if (vector_index >= 0) {
+          auto type_vec =
+              reinterpret_cast<const flatbuffers::Vector<uint8_t> *>(
+                  prev_val +
+                  flatbuffers::ReadScalar<flatbuffers::uoffset_t>(prev_val));
+          union_type_byte =
+              type_vec->Get(static_cast<flatbuffers::uoffset_t>(vector_index));
+        }
+        auto enum_val = type.enum_def->ReverseLookup(union_type_byte, true);
+        if (enum_val) {
+          return ReadFields(val, enum_val->union_type, nullptr, -1);
+        } else {
+          return "UNKNOWN";
+        }
+      }
+      default: return "UNKNOWN";
     }
   }
 
@@ -117,6 +148,7 @@ class FLAT {
                     std::string &text, const std::string &body_type) {
     write(body_type, struct_def.name + " -", text);
     incrementIndentation();
+    const uint8_t *ptr = nullptr;
     for (auto it = struct_def.fields.vec.begin();
          it < struct_def.fields.vec.end(); ++it) {
       auto field = **it;
@@ -124,8 +156,13 @@ class FLAT {
           struct_def.fixed || table->CheckField(field.value.offset);
       if (is_present && !field.deprecated) {
         std::string value =
-            ReadFields(field, table, struct_def, struct_def.fixed);
+            ReadScalarFields(field, table, struct_def, ptr, struct_def.fixed);
         write(field.name, value, text);
+      }
+      if (struct_def.fixed) {
+        ptr = reinterpret_cast<const uint8_t *>(table) + field.value.offset;
+      } else {
+        ptr = table->GetAddressOf(field.value.offset);
       }
     }
     decrementIndentation();
