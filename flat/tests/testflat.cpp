@@ -21,7 +21,9 @@ void testCreatingFLAT(const std::string &schema_file, void *flatbuffer) {
 
 void createTestUser() {
   flatbuffers::FlatBufferBuilder b;
-  auto root = CreateUserDirect(b, "M", 25, "m@m.com", false);
+  auto favorite_music = CreateMusicDirect(b, "Pink Floyd");
+  auto root = CreateUserDirect(b, "M", 25, "mustii@mmk.one", false,
+                               Favorite_Music, favorite_music.Union());
   b.Finish(root);
   auto pointer = b.GetBufferPointer();
   std::string schema_file;

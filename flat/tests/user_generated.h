@@ -6,8 +6,166 @@
 
 #include "flatbuffers/flatbuffers.h"
 
+struct Music;
+struct MusicBuilder;
+
+struct Movie;
+struct MovieBuilder;
+
 struct User;
 struct UserBuilder;
+
+enum Favorite {
+  Favorite_NONE = 0,
+  Favorite_Music = 1,
+  Favorite_Movie = 2,
+  Favorite_MIN = Favorite_NONE,
+  Favorite_MAX = Favorite_Movie
+};
+
+inline const Favorite (&EnumValuesFavorite())[3] {
+  static const Favorite values[] = {
+    Favorite_NONE,
+    Favorite_Music,
+    Favorite_Movie
+  };
+  return values;
+}
+
+inline const char * const *EnumNamesFavorite() {
+  static const char * const names[4] = {
+    "NONE",
+    "Music",
+    "Movie",
+    nullptr
+  };
+  return names;
+}
+
+inline const char *EnumNameFavorite(Favorite e) {
+  if (flatbuffers::IsOutRange(e, Favorite_NONE, Favorite_Movie)) return "";
+  const size_t index = static_cast<size_t>(e);
+  return EnumNamesFavorite()[index];
+}
+
+template<typename T> struct FavoriteTraits {
+  static const Favorite enum_value = Favorite_NONE;
+};
+
+template<> struct FavoriteTraits<Music> {
+  static const Favorite enum_value = Favorite_Music;
+};
+
+template<> struct FavoriteTraits<Movie> {
+  static const Favorite enum_value = Favorite_Movie;
+};
+
+bool VerifyFavorite(flatbuffers::Verifier &verifier, const void *obj, Favorite type);
+bool VerifyFavoriteVector(flatbuffers::Verifier &verifier, const flatbuffers::Vector<flatbuffers::Offset<void>> *values, const flatbuffers::Vector<uint8_t> *types);
+
+struct Music FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  typedef MusicBuilder Builder;
+  enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
+    VT_NAME = 4
+  };
+  const flatbuffers::String *name() const {
+    return GetPointer<const flatbuffers::String *>(VT_NAME);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyOffset(verifier, VT_NAME) &&
+           verifier.VerifyString(name()) &&
+           verifier.EndTable();
+  }
+};
+
+struct MusicBuilder {
+  typedef Music Table;
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_name(flatbuffers::Offset<flatbuffers::String> name) {
+    fbb_.AddOffset(Music::VT_NAME, name);
+  }
+  explicit MusicBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  MusicBuilder &operator=(const MusicBuilder &);
+  flatbuffers::Offset<Music> Finish() {
+    const auto end = fbb_.EndTable(start_);
+    auto o = flatbuffers::Offset<Music>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Music> CreateMusic(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::String> name = 0) {
+  MusicBuilder builder_(_fbb);
+  builder_.add_name(name);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Music> CreateMusicDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const char *name = nullptr) {
+  auto name__ = name ? _fbb.CreateString(name) : 0;
+  return CreateMusic(
+      _fbb,
+      name__);
+}
+
+struct Movie FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  typedef MovieBuilder Builder;
+  enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
+    VT_NAME = 4
+  };
+  const flatbuffers::String *name() const {
+    return GetPointer<const flatbuffers::String *>(VT_NAME);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyOffset(verifier, VT_NAME) &&
+           verifier.VerifyString(name()) &&
+           verifier.EndTable();
+  }
+};
+
+struct MovieBuilder {
+  typedef Movie Table;
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_name(flatbuffers::Offset<flatbuffers::String> name) {
+    fbb_.AddOffset(Movie::VT_NAME, name);
+  }
+  explicit MovieBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  MovieBuilder &operator=(const MovieBuilder &);
+  flatbuffers::Offset<Movie> Finish() {
+    const auto end = fbb_.EndTable(start_);
+    auto o = flatbuffers::Offset<Movie>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Movie> CreateMovie(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::String> name = 0) {
+  MovieBuilder builder_(_fbb);
+  builder_.add_name(name);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Movie> CreateMovieDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const char *name = nullptr) {
+  auto name__ = name ? _fbb.CreateString(name) : 0;
+  return CreateMovie(
+      _fbb,
+      name__);
+}
 
 struct User FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   typedef UserBuilder Builder;
@@ -15,7 +173,9 @@ struct User FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_NAME = 4,
     VT_AGE = 6,
     VT_EMAIL = 8,
-    VT_LOGGEDIN = 10
+    VT_LOGGEDIN = 10,
+    VT_STARRED_TYPE = 12,
+    VT_STARRED = 14
   };
   const flatbuffers::String *name() const {
     return GetPointer<const flatbuffers::String *>(VT_NAME);
@@ -29,6 +189,19 @@ struct User FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool loggedIn() const {
     return GetField<uint8_t>(VT_LOGGEDIN, 0) != 0;
   }
+  Favorite starred_type() const {
+    return static_cast<Favorite>(GetField<uint8_t>(VT_STARRED_TYPE, 0));
+  }
+  const void *starred() const {
+    return GetPointer<const void *>(VT_STARRED);
+  }
+  template<typename T> const T *starred_as() const;
+  const Music *starred_as_Music() const {
+    return starred_type() == Favorite_Music ? static_cast<const Music *>(starred()) : nullptr;
+  }
+  const Movie *starred_as_Movie() const {
+    return starred_type() == Favorite_Movie ? static_cast<const Movie *>(starred()) : nullptr;
+  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyOffset(verifier, VT_NAME) &&
@@ -37,9 +210,20 @@ struct User FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyOffset(verifier, VT_EMAIL) &&
            verifier.VerifyString(email()) &&
            VerifyField<uint8_t>(verifier, VT_LOGGEDIN) &&
+           VerifyField<uint8_t>(verifier, VT_STARRED_TYPE) &&
+           VerifyOffset(verifier, VT_STARRED) &&
+           VerifyFavorite(verifier, starred(), starred_type()) &&
            verifier.EndTable();
   }
 };
+
+template<> inline const Music *User::starred_as<Music>() const {
+  return starred_as_Music();
+}
+
+template<> inline const Movie *User::starred_as<Movie>() const {
+  return starred_as_Movie();
+}
 
 struct UserBuilder {
   typedef User Table;
@@ -56,6 +240,12 @@ struct UserBuilder {
   }
   void add_loggedIn(bool loggedIn) {
     fbb_.AddElement<uint8_t>(User::VT_LOGGEDIN, static_cast<uint8_t>(loggedIn), 0);
+  }
+  void add_starred_type(Favorite starred_type) {
+    fbb_.AddElement<uint8_t>(User::VT_STARRED_TYPE, static_cast<uint8_t>(starred_type), 0);
+  }
+  void add_starred(flatbuffers::Offset<void> starred) {
+    fbb_.AddOffset(User::VT_STARRED, starred);
   }
   explicit UserBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
@@ -74,11 +264,15 @@ inline flatbuffers::Offset<User> CreateUser(
     flatbuffers::Offset<flatbuffers::String> name = 0,
     uint32_t age = 0,
     flatbuffers::Offset<flatbuffers::String> email = 0,
-    bool loggedIn = false) {
+    bool loggedIn = false,
+    Favorite starred_type = Favorite_NONE,
+    flatbuffers::Offset<void> starred = 0) {
   UserBuilder builder_(_fbb);
+  builder_.add_starred(starred);
   builder_.add_email(email);
   builder_.add_age(age);
   builder_.add_name(name);
+  builder_.add_starred_type(starred_type);
   builder_.add_loggedIn(loggedIn);
   return builder_.Finish();
 }
@@ -88,7 +282,9 @@ inline flatbuffers::Offset<User> CreateUserDirect(
     const char *name = nullptr,
     uint32_t age = 0,
     const char *email = nullptr,
-    bool loggedIn = false) {
+    bool loggedIn = false,
+    Favorite starred_type = Favorite_NONE,
+    flatbuffers::Offset<void> starred = 0) {
   auto name__ = name ? _fbb.CreateString(name) : 0;
   auto email__ = email ? _fbb.CreateString(email) : 0;
   return CreateUser(
@@ -96,7 +292,38 @@ inline flatbuffers::Offset<User> CreateUserDirect(
       name__,
       age,
       email__,
-      loggedIn);
+      loggedIn,
+      starred_type,
+      starred);
+}
+
+inline bool VerifyFavorite(flatbuffers::Verifier &verifier, const void *obj, Favorite type) {
+  switch (type) {
+    case Favorite_NONE: {
+      return true;
+    }
+    case Favorite_Music: {
+      auto ptr = reinterpret_cast<const Music *>(obj);
+      return verifier.VerifyTable(ptr);
+    }
+    case Favorite_Movie: {
+      auto ptr = reinterpret_cast<const Movie *>(obj);
+      return verifier.VerifyTable(ptr);
+    }
+    default: return true;
+  }
+}
+
+inline bool VerifyFavoriteVector(flatbuffers::Verifier &verifier, const flatbuffers::Vector<flatbuffers::Offset<void>> *values, const flatbuffers::Vector<uint8_t> *types) {
+  if (!values || !types) return !values && !types;
+  if (values->size() != types->size()) return false;
+  for (flatbuffers::uoffset_t i = 0; i < values->size(); ++i) {
+    if (!VerifyFavorite(
+        verifier,  values->Get(i), types->GetEnum<Favorite>(i))) {
+      return false;
+    }
+  }
+  return true;
 }
 
 inline const User *GetUser(const void *buf) {
