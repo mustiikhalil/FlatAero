@@ -1,19 +1,53 @@
 #include <string>
 
-#include "flat/flat.hpp"
+#include "flat/flat.h"
+#include "numbers_generated.h"
 #include "user_generated.h"
 
-void testCreatingJSON(const std::string &schema_file) {
-  flatbuffers::FlatBufferBuilder b;
-  auto root = CreateUserDirect(b, "M", 25, "m@m.com", true);
-  b.Finish(root);
+// ****************************************
+// TODO: - requires better test cases
+// ****************************************
+
+void testCreatingJSON(const std::string &schema_file, void *flatbuffer) {
   flat::JSON parser(schema_file);
-  auto json = parser.parse(b.GetBufferPointer());
+  auto json = parser.parse(flatbuffer);
+}
+
+void testCreatingFLAT(const std::string &schema_file, void *flatbuffer) {
+  flat::FLAT parser(schema_file);
+  auto json = parser.parse(flatbuffer);
+  std::cout << json << std::endl;
+}
+
+void createTestUser() {
+  flatbuffers::FlatBufferBuilder b;
+  auto root = CreateUserDirect(b, "M", 25, "m@m.com", false);
+  b.Finish(root);
+  auto pointer = b.GetBufferPointer();
+  std::string schema_file;
+
+  flatbuffers::LoadFile("../tests/User.fbs", false, &schema_file);
+  testCreatingJSON(schema_file, pointer);
+  testCreatingFLAT(schema_file, pointer);
+}
+
+void createTestNumbers() {
+  flatbuffers::FlatBufferBuilder b;
+  auto p = Position(8, 9, 10);
+  auto r = CreatePIValue(b, b.CreateString("3.14"));
+  auto root = CreateNumbers(b, Values_l2, Values_MAX, 1, 1, true, 10, 30, 40,
+                            50, 60, 90, 10.8, 11.1, &p, r);
+  b.Finish(root);
+  auto pointer = b.GetBufferPointer();
+  std::string schema_file;
+
+  flatbuffers::LoadFile("../tests/numbers.fbs", false, &schema_file);
+  testCreatingJSON(schema_file, pointer);
+  testCreatingFLAT(schema_file, pointer);
 }
 
 int main(int /*argc*/, const char * /*argv*/[]) {
-  std::string schema_file;
-  flatbuffers::LoadFile("../tests/User.fbs", false, &schema_file);
-  testCreatingJSON(schema_file);
+  createTestUser();
+  createTestNumbers();
   return 0;
 }
