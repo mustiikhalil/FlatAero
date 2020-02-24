@@ -1,3 +1,6 @@
+#ifndef flat_h
+#define flat_h
+
 #include <iostream>
 #include <string>
 
@@ -189,4 +192,6 @@ class FLAT {
     return gen_code;
   }
 };
+
 }  // namespace flat
+#endif /* flat_h */

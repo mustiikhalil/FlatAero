@@ -36,7 +36,7 @@ if(FLAT_CODE_COVERAGE)
 endif()
 
 if(FLAT_BUILD_FLATLIB)
-    add_library(flat STATIC ${FLAT_Library_SRCS})
+    add_library(flat SHARED ${FLAT_Library_SRCS})
     target_include_directories(flat INTERFACE 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>)
     target_compile_options(flat PRIVATE "${FLAT_PRIVATE_CXX_FLAGS}")

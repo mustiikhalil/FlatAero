@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DF378E592404495400DF1CCE /* libflat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DFBE3F6C240441D00054E6F2 /* libflat.dylib */; };
+		DF378E5A2404495400DF1CCE /* libflat.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = DFBE3F6C240441D00054E6F2 /* libflat.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		DFBE3F492404419F0054E6F2 /* FlatWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFBE3F3F2404419F0054E6F2 /* FlatWrapper.framework */; };
+		DFBE3F4E2404419F0054E6F2 /* FlatWrapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBE3F4D2404419F0054E6F2 /* FlatWrapperTests.m */; };
+		DFBE3F502404419F0054E6F2 /* FlatWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DFBE3F422404419F0054E6F2 /* FlatWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFBE3F82240443C40054E6F2 /* FlatWrapper_objc.mm in Sources */ = {isa = PBXBuildFile; fileRef = DFBE3F81240443C40054E6F2 /* FlatWrapper_objc.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFBE3F4A2404419F0054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F362404419F0054E6F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFBE3F3E2404419F0054E6F2;
+			remoteInfo = FlatWrapper;
+		};
+		DFBE3F6B240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 613354C0423546C2B50568B0;
+			remoteInfo = flat;
+		};
+		DFBE3F6D240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 28467546E45C4C91BB9B9B65;
+			remoteInfo = flatbuffers;
+		};
+		DFBE3F6F240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 312CC5C95A124097BF054133;
+			remoteInfo = flatc;
+		};
+		DFBE3F71240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38D57879DFBF4916A72D4166;
+			remoteInfo = flathash;
+		};
+		DFBE3F73240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A2E97EB43FB4B9B93E33B5A;
+			remoteInfo = flatsamplebfbs;
+		};
+		DFBE3F75240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED3CCF393D844BC4BA30DCFD;
+			remoteInfo = flatsamplebinary;
+		};
+		DFBE3F77240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1963B093F834A8986EF4DA3;
+			remoteInfo = flatsampletext;
+		};
+		DFBE3F79240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F328C34F6A5B468BA0A8C7EE;
+			remoteInfo = flattests;
+		};
+		DFBE3F7B240441D00054E6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE99E4CD33A745A78510B7FC;
+			remoteInfo = tests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DF378E5B2404495400DF1CCE /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DF378E5A2404495400DF1CCE /* libflat.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DFBE3F3F2404419F0054E6F2 /* FlatWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlatWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFBE3F422404419F0054E6F2 /* FlatWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatWrapper.h; sourceTree = "<group>"; };
+		DFBE3F432404419F0054E6F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFBE3F482404419F0054E6F2 /* FlatWrapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatWrapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFBE3F4D2404419F0054E6F2 /* FlatWrapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlatWrapperTests.m; sourceTree = "<group>"; };
+		DFBE3F4F2404419F0054E6F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAT.xcodeproj; path = ../flat/FLAT.xcodeproj; sourceTree = "<group>"; };
+		DFBE3F81240443C40054E6F2 /* FlatWrapper_objc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FlatWrapper_objc.mm; sourceTree = "<group>"; };
+		DFBE3F83240443D40054E6F2 /* FlatWrapper_objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatWrapper_objc.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFBE3F3C2404419F0054E6F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF378E592404495400DF1CCE /* libflat.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFBE3F452404419F0054E6F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFBE3F492404419F0054E6F2 /* FlatWrapper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DFBE3F352404419F0054E6F2 = {
+			isa = PBXGroup;
+			children = (
+				DFBE3F412404419F0054E6F2 /* FlatWrapper */,
+				DFBE3F4C2404419F0054E6F2 /* FlatWrapperTests */,
+				DFBE3F402404419F0054E6F2 /* Products */,
+				DFBE3F59240441D00054E6F2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DFBE3F402404419F0054E6F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFBE3F3F2404419F0054E6F2 /* FlatWrapper.framework */,
+				DFBE3F482404419F0054E6F2 /* FlatWrapperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFBE3F412404419F0054E6F2 /* FlatWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				DFBE3F422404419F0054E6F2 /* FlatWrapper.h */,
+				DFBE3F432404419F0054E6F2 /* Info.plist */,
+				DFBE3F81240443C40054E6F2 /* FlatWrapper_objc.mm */,
+				DFBE3F83240443D40054E6F2 /* FlatWrapper_objc.h */,
+			);
+			path = FlatWrapper;
+			sourceTree = "<group>";
+		};
+		DFBE3F4C2404419F0054E6F2 /* FlatWrapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				DFBE3F4D2404419F0054E6F2 /* FlatWrapperTests.m */,
+				DFBE3F4F2404419F0054E6F2 /* Info.plist */,
+			);
+			path = FlatWrapperTests;
+			sourceTree = "<group>";
+		};
+		DFBE3F59240441D00054E6F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFBE3F5B240441D00054E6F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFBE3F6C240441D00054E6F2 /* libflat.dylib */,
+				DFBE3F6E240441D00054E6F2 /* libflatbuffers.a */,
+				DFBE3F70240441D00054E6F2 /* flatc */,
+				DFBE3F72240441D00054E6F2 /* flathash */,
+				DFBE3F74240441D00054E6F2 /* flatsamplebfbs */,
+				DFBE3F76240441D00054E6F2 /* flatsamplebinary */,
+				DFBE3F78240441D00054E6F2 /* flatsampletext */,
+				DFBE3F7A240441D00054E6F2 /* flattests */,
+				DFBE3F7C240441D00054E6F2 /* tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DFBE3F3A2404419F0054E6F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFBE3F502404419F0054E6F2 /* FlatWrapper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DFBE3F3E2404419F0054E6F2 /* FlatWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFBE3F532404419F0054E6F2 /* Build configuration list for PBXNativeTarget "FlatWrapper" */;
+			buildPhases = (
+				DFBE3F3A2404419F0054E6F2 /* Headers */,
+				DFBE3F3B2404419F0054E6F2 /* Sources */,
+				DFBE3F3C2404419F0054E6F2 /* Frameworks */,
+				DFBE3F3D2404419F0054E6F2 /* Resources */,
+				DF378E5B2404495400DF1CCE /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlatWrapper;
+			productName = FlatWrapper;
+			productReference = DFBE3F3F2404419F0054E6F2 /* FlatWrapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DFBE3F472404419F0054E6F2 /* FlatWrapperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFBE3F562404419F0054E6F2 /* Build configuration list for PBXNativeTarget "FlatWrapperTests" */;
+			buildPhases = (
+				DFBE3F442404419F0054E6F2 /* Sources */,
+				DFBE3F452404419F0054E6F2 /* Frameworks */,
+				DFBE3F462404419F0054E6F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFBE3F4B2404419F0054E6F2 /* PBXTargetDependency */,
+			);
+			name = FlatWrapperTests;
+			productName = FlatWrapperTests;
+			productReference = DFBE3F482404419F0054E6F2 /* FlatWrapperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFBE3F362404419F0054E6F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Mustafa Khalil";
+				TargetAttributes = {
+					DFBE3F3E2404419F0054E6F2 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					DFBE3F472404419F0054E6F2 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = DFBE3F392404419F0054E6F2 /* Build configuration list for PBXProject "FlatWrapper" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFBE3F352404419F0054E6F2;
+			productRefGroup = DFBE3F402404419F0054E6F2 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DFBE3F5B240441D00054E6F2 /* Products */;
+					ProjectRef = DFBE3F5A240441D00054E6F2 /* FLAT.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				DFBE3F3E2404419F0054E6F2 /* FlatWrapper */,
+				DFBE3F472404419F0054E6F2 /* FlatWrapperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DFBE3F6C240441D00054E6F2 /* libflat.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libflat.dylib;
+			remoteRef = DFBE3F6B240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F6E240441D00054E6F2 /* libflatbuffers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libflatbuffers.a;
+			remoteRef = DFBE3F6D240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F70240441D00054E6F2 /* flatc */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatc;
+			remoteRef = DFBE3F6F240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F72240441D00054E6F2 /* flathash */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flathash;
+			remoteRef = DFBE3F71240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F74240441D00054E6F2 /* flatsamplebfbs */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatsamplebfbs;
+			remoteRef = DFBE3F73240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F76240441D00054E6F2 /* flatsamplebinary */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatsamplebinary;
+			remoteRef = DFBE3F75240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F78240441D00054E6F2 /* flatsampletext */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatsampletext;
+			remoteRef = DFBE3F77240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F7A240441D00054E6F2 /* flattests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flattests;
+			remoteRef = DFBE3F79240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFBE3F7C240441D00054E6F2 /* tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = tests;
+			remoteRef = DFBE3F7B240441D00054E6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFBE3F3D2404419F0054E6F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFBE3F462404419F0054E6F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFBE3F3B2404419F0054E6F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFBE3F82240443C40054E6F2 /* FlatWrapper_objc.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFBE3F442404419F0054E6F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFBE3F4E2404419F0054E6F2 /* FlatWrapperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFBE3F4B2404419F0054E6F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFBE3F3E2404419F0054E6F2 /* FlatWrapper */;
+			targetProxy = DFBE3F4A2404419F0054E6F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DFBE3F512404419F0054E6F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DFBE3F522404419F0054E6F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DFBE3F542404419F0054E6F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8QAD36SMXZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FlatWrapper/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = space.mmk.FlatWrapper;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DFBE3F552404419F0054E6F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8QAD36SMXZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FlatWrapper/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = space.mmk.FlatWrapper;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DFBE3F572404419F0054E6F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8QAD36SMXZ;
+				INFOPLIST_FILE = FlatWrapperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = space.mmk.FlatWrapperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DFBE3F582404419F0054E6F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8QAD36SMXZ;
+				INFOPLIST_FILE = FlatWrapperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = space.mmk.FlatWrapperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFBE3F392404419F0054E6F2 /* Build configuration list for PBXProject "FlatWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFBE3F512404419F0054E6F2 /* Debug */,
+				DFBE3F522404419F0054E6F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFBE3F532404419F0054E6F2 /* Build configuration list for PBXNativeTarget "FlatWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFBE3F542404419F0054E6F2 /* Debug */,
+				DFBE3F552404419F0054E6F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFBE3F562404419F0054E6F2 /* Build configuration list for PBXNativeTarget "FlatWrapperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFBE3F572404419F0054E6F2 /* Debug */,
+				DFBE3F582404419F0054E6F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFBE3F362404419F0054E6F2 /* Project object */;
+}
