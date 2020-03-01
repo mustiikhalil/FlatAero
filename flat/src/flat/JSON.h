@@ -11,13 +11,8 @@ class JSON {
   Parser parser;
 
  public:
-  JSON(const std::string &table) { parser.Parse(table.c_str()); }
-
-  std::string parse(const void *flatbuffer) {
-    std::string json;
-    flatbuffers::GenerateText(parser, flatbuffer, &json);
-    return json;
-  }
+  JSON(const std::string &table);
+  std::string parse(const void *flatbuffer);
 };
 }  // namespace flat
 

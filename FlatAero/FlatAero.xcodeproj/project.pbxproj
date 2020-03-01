@@ -82,6 +82,7 @@
 				DF009CAC23FC14CA006DF207 /* FlatAeroTests */,
 				DF009CB723FC14CA006DF207 /* FlatAeroUITests */,
 				DF009C9523FC14C9006DF207 /* Products */,
+				DFB87368240C0CCE008A39EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +99,7 @@
 		DF009C9623FC14C9006DF207 /* FlatAero */ = {
 			isa = PBXGroup;
 			children = (
+				DFB87375240C0E00008A39EF /* C_Library */,
 				DF009C9723FC14C9006DF207 /* AppDelegate.swift */,
 				DF009C9923FC14C9006DF207 /* ContentView.swift */,
 				DF009C9B23FC14CA006DF207 /* Assets.xcassets */,
@@ -133,6 +135,20 @@
 				DF009CBA23FC14CA006DF207 /* Info.plist */,
 			);
 			path = FlatAeroUITests;
+			sourceTree = "<group>";
+		};
+		DFB87368240C0CCE008A39EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFB87375240C0E00008A39EF /* C_Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = C_Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +219,7 @@
 				TargetAttributes = {
 					DF009C9323FC14C9006DF207 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					DF009CA823FC14CA006DF207 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -431,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FlatAero/FlatAero.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -446,6 +464,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = space.mmk.FlatAero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -454,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FlatAero/FlatAero.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
