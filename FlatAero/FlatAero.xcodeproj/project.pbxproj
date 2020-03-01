@@ -14,6 +14,9 @@
 		DF009CA223FC14CA006DF207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF009CA023FC14CA006DF207 /* Main.storyboard */; };
 		DF009CAE23FC14CA006DF207 /* FlatAeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CAD23FC14CA006DF207 /* FlatAeroTests.swift */; };
 		DF009CB923FC14CA006DF207 /* FlatAeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */; };
+		DFE2C72C240C1BD400EDD925 /* wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFE2C72B240C1BD400EDD925 /* wrapper.cpp */; };
+		DFE2C72E240C1CA700EDD925 /* libflat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE2C72D240C1C9500EDD925 /* libflat.a */; };
+		DFE2C756240C205D00EDD925 /* FlatWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE2C755240C205D00EDD925 /* FlatWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,69 @@
 			proxyType = 1;
 			remoteGlobalIDString = DF009C9323FC14C9006DF207;
 			remoteInfo = FlatAero;
+		};
+		DFE2C743240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25CF8C3F79064BB28D2312F6;
+			remoteInfo = flat;
+		};
+		DFE2C745240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F1747999F4BB4567ADCE1321;
+			remoteInfo = flatbuffers;
+		};
+		DFE2C747240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 28395182A80A46AFBF70E456;
+			remoteInfo = flatc;
+		};
+		DFE2C749240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E364486804C47FF865B30E4;
+			remoteInfo = flathash;
+		};
+		DFE2C74B240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE302E4930AB4DB6B16DA431;
+			remoteInfo = flatsamplebfbs;
+		};
+		DFE2C74D240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 392E3AFC9A3E446B8B78E4F8;
+			remoteInfo = flatsamplebinary;
+		};
+		DFE2C74F240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF2581CE55904BC581178B0B;
+			remoteInfo = flatsampletext;
+		};
+		DFE2C751240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C5D4A439CB864CA989EABB30;
+			remoteInfo = flattests;
+		};
+		DFE2C753240C1F6E00EDD925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB53BD0D2A774ABCA46835EA;
+			remoteInfo = tests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -48,6 +114,14 @@
 		DF009CB423FC14CA006DF207 /* FlatAeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatAeroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatAeroUITests.swift; sourceTree = "<group>"; };
 		DF009CBA23FC14CA006DF207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFE2C72A240C1BD300EDD925 /* FlatAero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatAero-Bridging-Header.h"; sourceTree = "<group>"; };
+		DFE2C72B240C1BD400EDD925 /* wrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper.cpp; sourceTree = "<group>"; };
+		DFE2C72D240C1C9500EDD925 /* libflat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflat.a; path = ../flat/Debug/libflat.a; sourceTree = "<group>"; };
+		DFE2C72F240C1D4000EDD925 /* variables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variables.h; path = ../../../flat/src/flat/variables.h; sourceTree = "<group>"; };
+		DFE2C730240C1D4000EDD925 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = ../../../flat/src/flat/JSON.h; sourceTree = "<group>"; };
+		DFE2C731240C1D4000EDD925 /* flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = flat.h; path = ../../../flat/src/flat/flat.h; sourceTree = "<group>"; };
+		DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAT.xcodeproj; path = ../flat/FLAT.xcodeproj; sourceTree = "<group>"; };
+		DFE2C755240C205D00EDD925 /* FlatWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFE2C72E240C1CA700EDD925 /* libflat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +153,7 @@
 		DF009C8B23FC14C9006DF207 = {
 			isa = PBXGroup;
 			children = (
+				DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */,
 				DF009C9623FC14C9006DF207 /* FlatAero */,
 				DF009CAC23FC14CA006DF207 /* FlatAeroTests */,
 				DF009CB723FC14CA006DF207 /* FlatAeroUITests */,
@@ -99,7 +175,7 @@
 		DF009C9623FC14C9006DF207 /* FlatAero */ = {
 			isa = PBXGroup;
 			children = (
-				DFB87375240C0E00008A39EF /* C_Library */,
+				DFE2C729240C1BC100EDD925 /* C_Link */,
 				DF009C9723FC14C9006DF207 /* AppDelegate.swift */,
 				DF009C9923FC14C9006DF207 /* ContentView.swift */,
 				DF009C9B23FC14CA006DF207 /* Assets.xcassets */,
@@ -140,15 +216,38 @@
 		DFB87368240C0CCE008A39EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DFE2C72D240C1C9500EDD925 /* libflat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DFB87375240C0E00008A39EF /* C_Library */ = {
+		DFE2C729240C1BC100EDD925 /* C_Link */ = {
 			isa = PBXGroup;
 			children = (
+				DFE2C731240C1D4000EDD925 /* flat.h */,
+				DFE2C730240C1D4000EDD925 /* JSON.h */,
+				DFE2C72F240C1D4000EDD925 /* variables.h */,
+				DFE2C72B240C1BD400EDD925 /* wrapper.cpp */,
+				DFE2C72A240C1BD300EDD925 /* FlatAero-Bridging-Header.h */,
+				DFE2C755240C205D00EDD925 /* FlatWrapper.swift */,
 			);
-			path = C_Library;
+			path = C_Link;
+			sourceTree = "<group>";
+		};
+		DFE2C733240C1F6D00EDD925 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFE2C744240C1F6E00EDD925 /* libflat.a */,
+				DFE2C746240C1F6E00EDD925 /* libflatbuffers.a */,
+				DFE2C748240C1F6E00EDD925 /* flatc */,
+				DFE2C74A240C1F6E00EDD925 /* flathash */,
+				DFE2C74C240C1F6E00EDD925 /* flatsamplebfbs */,
+				DFE2C74E240C1F6E00EDD925 /* flatsamplebinary */,
+				DFE2C750240C1F6E00EDD925 /* flatsampletext */,
+				DFE2C752240C1F6E00EDD925 /* flattests */,
+				DFE2C754240C1F6E00EDD925 /* tests */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +341,12 @@
 			mainGroup = DF009C8B23FC14C9006DF207;
 			productRefGroup = DF009C9523FC14C9006DF207 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DFE2C733240C1F6D00EDD925 /* Products */;
+					ProjectRef = DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DF009C9323FC14C9006DF207 /* FlatAero */,
@@ -250,6 +355,72 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DFE2C744240C1F6E00EDD925 /* libflat.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libflat.a;
+			remoteRef = DFE2C743240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C746240C1F6E00EDD925 /* libflatbuffers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libflatbuffers.a;
+			remoteRef = DFE2C745240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C748240C1F6E00EDD925 /* flatc */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatc;
+			remoteRef = DFE2C747240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C74A240C1F6E00EDD925 /* flathash */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flathash;
+			remoteRef = DFE2C749240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C74C240C1F6E00EDD925 /* flatsamplebfbs */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatsamplebfbs;
+			remoteRef = DFE2C74B240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C74E240C1F6E00EDD925 /* flatsamplebinary */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatsamplebinary;
+			remoteRef = DFE2C74D240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C750240C1F6E00EDD925 /* flatsampletext */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flatsampletext;
+			remoteRef = DFE2C74F240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C752240C1F6E00EDD925 /* flattests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = flattests;
+			remoteRef = DFE2C751240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFE2C754240C1F6E00EDD925 /* tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = tests;
+			remoteRef = DFE2C753240C1F6E00EDD925 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DF009C9223FC14C9006DF207 /* Resources */ = {
@@ -283,8 +454,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFE2C756240C205D00EDD925 /* FlatWrapper.swift in Sources */,
 				DF009C9A23FC14C9006DF207 /* ContentView.swift in Sources */,
 				DF009C9823FC14C9006DF207 /* AppDelegate.swift in Sources */,
+				DFE2C72C240C1BD400EDD925 /* wrapper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,10 +635,21 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/mustii/development/personal/FlatAero/flat/Debug/libflat.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = space.mmk.FlatAero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlatAero/C_Link/FlatAero-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = (
+					../flat/tests,
+					../flat/src,
+					../flat/flatbuffers/include,
+				);
 			};
 			name = Debug;
 		};
@@ -487,9 +671,20 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/mustii/development/personal/FlatAero/flat/Debug/libflat.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = space.mmk.FlatAero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlatAero/C_Link/FlatAero-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = (
+					../flat/tests,
+					../flat/src,
+					../flat/flatbuffers/include,
+				);
 			};
 			name = Release;
 		};
