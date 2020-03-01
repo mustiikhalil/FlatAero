@@ -10,11 +10,15 @@ import Foundation
 
 
 struct Flat {
-    
+    var schema = """
+    table User {
+    name: string;
+    }
+    root_type user;
+    """
     func parser() {
-        print("cpp size: ", size())
-        parse().map { p in
-            print(p.pointee)
-        }
+        let p = Wrapper()
+        var m: [UInt8] = [1, 2, 3, 4]
+        print(p.printJSON(fromBuffer: &m, from: schema))
     }
 }

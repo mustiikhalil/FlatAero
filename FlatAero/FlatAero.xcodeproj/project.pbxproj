@@ -14,9 +14,10 @@
 		DF009CA223FC14CA006DF207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF009CA023FC14CA006DF207 /* Main.storyboard */; };
 		DF009CAE23FC14CA006DF207 /* FlatAeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CAD23FC14CA006DF207 /* FlatAeroTests.swift */; };
 		DF009CB923FC14CA006DF207 /* FlatAeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */; };
-		DFE2C72C240C1BD400EDD925 /* wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFE2C72B240C1BD400EDD925 /* wrapper.cpp */; };
 		DFE2C72E240C1CA700EDD925 /* libflat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE2C72D240C1C9500EDD925 /* libflat.a */; };
 		DFE2C756240C205D00EDD925 /* FlatWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE2C755240C205D00EDD925 /* FlatWrapper.swift */; };
+		DFF2D8AA240C362E00ADF561 /* Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = DFF2D8A9240C362E00ADF561 /* Wrapper.mm */; };
+		DFF2D8AB240C64A800ADF561 /* libflatbuffers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE2C746240C1F6E00EDD925 /* libflatbuffers.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,13 +116,14 @@
 		DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatAeroUITests.swift; sourceTree = "<group>"; };
 		DF009CBA23FC14CA006DF207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFE2C72A240C1BD300EDD925 /* FlatAero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatAero-Bridging-Header.h"; sourceTree = "<group>"; };
-		DFE2C72B240C1BD400EDD925 /* wrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper.cpp; sourceTree = "<group>"; };
 		DFE2C72D240C1C9500EDD925 /* libflat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflat.a; path = ../flat/Debug/libflat.a; sourceTree = "<group>"; };
 		DFE2C72F240C1D4000EDD925 /* variables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variables.h; path = ../../../flat/src/flat/variables.h; sourceTree = "<group>"; };
 		DFE2C730240C1D4000EDD925 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = ../../../flat/src/flat/JSON.h; sourceTree = "<group>"; };
 		DFE2C731240C1D4000EDD925 /* flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = flat.h; path = ../../../flat/src/flat/flat.h; sourceTree = "<group>"; };
 		DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAT.xcodeproj; path = ../flat/FLAT.xcodeproj; sourceTree = "<group>"; };
 		DFE2C755240C205D00EDD925 /* FlatWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatWrapper.swift; sourceTree = "<group>"; };
+		DFF2D8A8240C362E00ADF561 /* Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
+		DFF2D8A9240C362E00ADF561 /* Wrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Wrapper.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFF2D8AB240C64A800ADF561 /* libflatbuffers.a in Frameworks */,
 				DFE2C72E240C1CA700EDD925 /* libflat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,9 +230,10 @@
 				DFE2C731240C1D4000EDD925 /* flat.h */,
 				DFE2C730240C1D4000EDD925 /* JSON.h */,
 				DFE2C72F240C1D4000EDD925 /* variables.h */,
-				DFE2C72B240C1BD400EDD925 /* wrapper.cpp */,
 				DFE2C72A240C1BD300EDD925 /* FlatAero-Bridging-Header.h */,
 				DFE2C755240C205D00EDD925 /* FlatWrapper.swift */,
+				DFF2D8A8240C362E00ADF561 /* Wrapper.h */,
+				DFF2D8A9240C362E00ADF561 /* Wrapper.mm */,
 			);
 			path = C_Link;
 			sourceTree = "<group>";
@@ -455,9 +459,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFE2C756240C205D00EDD925 /* FlatWrapper.swift in Sources */,
+				DFF2D8AA240C362E00ADF561 /* Wrapper.mm in Sources */,
 				DF009C9A23FC14C9006DF207 /* ContentView.swift in Sources */,
 				DF009C9823FC14C9006DF207 /* AppDelegate.swift in Sources */,
-				DFE2C72C240C1BD400EDD925 /* wrapper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

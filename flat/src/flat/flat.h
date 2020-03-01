@@ -1,7 +1,6 @@
 #ifndef flat_h
 #define flat_h
 
-#include <iostream>
 #include <string>
 
 #include "JSON.h"
