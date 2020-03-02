@@ -15,6 +15,7 @@
 		DF009CAE23FC14CA006DF207 /* FlatAeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CAD23FC14CA006DF207 /* FlatAeroTests.swift */; };
 		DF009CB923FC14CA006DF207 /* FlatAeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */; };
 		DF4DFD21240CEA7A0093F6FD /* libflat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE2C744240C1F6E00EDD925 /* libflat.a */; };
+		DF95C949240D77BE009FA3C5 /* FlatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF95C948240D77BE009FA3C5 /* FlatTests.swift */; };
 		DFE2C756240C205D00EDD925 /* FlatWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE2C755240C205D00EDD925 /* FlatWrapper.swift */; };
 		DFF2D8AA240C362E00ADF561 /* Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = DFF2D8A9240C362E00ADF561 /* Wrapper.mm */; };
 		DFF2D8AB240C64A800ADF561 /* libflatbuffers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE2C746240C1F6E00EDD925 /* libflatbuffers.a */; };
@@ -115,6 +116,7 @@
 		DF009CB423FC14CA006DF207 /* FlatAeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatAeroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatAeroUITests.swift; sourceTree = "<group>"; };
 		DF009CBA23FC14CA006DF207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF95C948240D77BE009FA3C5 /* FlatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatTests.swift; sourceTree = "<group>"; };
 		DFE2C72A240C1BD300EDD925 /* FlatAero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatAero-Bridging-Header.h"; sourceTree = "<group>"; };
 		DFE2C72F240C1D4000EDD925 /* variables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variables.h; path = ../../../flat/src/flat/variables.h; sourceTree = "<group>"; };
 		DFE2C730240C1D4000EDD925 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = ../../../flat/src/flat/JSON.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				DF009CAD23FC14CA006DF207 /* FlatAeroTests.swift */,
 				DF009CAF23FC14CA006DF207 /* Info.plist */,
+				DF95C948240D77BE009FA3C5 /* FlatTests.swift */,
 			);
 			path = FlatAeroTests;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF95C949240D77BE009FA3C5 /* FlatTests.swift in Sources */,
 				DF009CAE23FC14CA006DF207 /* FlatAeroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

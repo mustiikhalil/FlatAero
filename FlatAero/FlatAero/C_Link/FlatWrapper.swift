@@ -10,31 +10,38 @@ import Foundation
 
 
 struct Flat {
-    var schema = """
-    union Favorite { Music, Movie }
-
-    table Music {
-        name: string;
-    }
-
-    table Movie {
-        name: string;
-    }
-
-    table User {
-        name: string;
-        age: uint;
-        email: string;
-        loggedIn: bool;
-        starred: Favorite;
-    }
-
-    root_type User;
-    """
-    func parser() {
-        let p = Wrapper()
-        var m: [UInt8] = [1, 2, 3, 4]
+    fileprivate var parser = Wrapper()
+    fileprivate var schema: String
+    
+    init(schema _s: String) { schema = _s }
+    
+    func parser(_ array: inout [UInt8], type: ParseType = .flat) throws -> String {
         var err: NSError?
-        let w = p.printJSON(fromBuffer: &m, from: schema, error: &err)
+        var str = ""
+        switch type {
+        case .flat:
+            str = flat(&array, err: &err)
+            
+        case .json:
+            str = json(&array, err: &err)
+        }
+        
+        if let err = err {
+            throw err
+        }
+        
+        return str
+    }
+    
+    func json(_ array: inout [UInt8], err: inout NSError?) -> String {
+        return parser.printJSON(fromBuffer: &array, from: schema, error: &err)
+    }
+    
+    func flat(_ array: inout [UInt8], err: inout NSError?) -> String {
+        return parser.printFLAT(fromBuffer: &array, from: schema, error: &err)
+    }
+    
+    enum ParseType {
+        case json, flat
     }
 }

@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Wrapper : NSObject
 - (NSString *) printJSONFromBuffer: (uint8_t [_Nullable])buf from:(NSString *)table error:(NSError**)error;
+- (NSString *) printFLATFromBuffer: (uint8_t [_Nullable])buf from:(NSString *)table error:(NSError**)error;
 @end
 
 NS_ASSUME_NONNULL_END
