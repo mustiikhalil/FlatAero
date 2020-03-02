@@ -11,14 +11,30 @@ import Foundation
 
 struct Flat {
     var schema = """
-    table User {
-    name: string;
+    union Favorite { Music, Movie }
+
+    table Music {
+        name: string;
     }
-    root_type user;
+
+    table Movie {
+        name: string;
+    }
+
+    table User {
+        name: string;
+        age: uint;
+        email: string;
+        loggedIn: bool;
+        starred: Favorite;
+    }
+
+    root_type User;
     """
     func parser() {
         let p = Wrapper()
         var m: [UInt8] = [1, 2, 3, 4]
-        print(p.printJSON(fromBuffer: &m, from: schema))
+        var err: NSError?
+        let w = p.printJSON(fromBuffer: &m, from: schema, error: &err)
     }
 }

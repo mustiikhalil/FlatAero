@@ -14,4 +14,4 @@ typedef flatbuffers::FieldDef FieldDef;
 typedef flatbuffers::Type Type;
 typedef flatbuffers::Struct Struct;
 typedef flatbuffers::String String;
-}
+}  // namespace flat

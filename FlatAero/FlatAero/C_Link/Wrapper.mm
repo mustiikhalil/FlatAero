@@ -8,12 +8,21 @@
 
 #import "Wrapper.h"
 #import "flat/flat.h"
+#import <Foundation/Foundation.h>
 
 @implementation Wrapper
-- (NSString *) printJSONFromBuffer:(uint8_t [])buf from:(NSString *)table {
+- (NSString *) printJSONFromBuffer:(uint8_t [])buf from:(NSString *)table error:(NSError**)error {
     std::string _table = std::string([table UTF8String]);
-    flat::FLAT flat(_table);
-    return [NSString stringWithCString: flat.parse(buf).c_str()
-                              encoding: [NSString defaultCStringEncoding]];
+    try {
+        flat::FLAT flat(_table);
+        return [NSString stringWithCString: flat.parse(buf).c_str()
+                                  encoding: [NSString defaultCStringEncoding]];
+    } catch (const char* err) {
+        NSString *errorMessage = [NSString stringWithCString:err
+                                                    encoding:[NSString defaultCStringEncoding]];
+        
+        *error = [NSError errorWithDomain:errorMessage code:300 userInfo:NULL];
+    }
+    return @"";
 }
 @end
