@@ -1,4 +1,6 @@
-#include <iostream>
+#ifndef flat_h
+#define flat_h
+
 #include <string>
 
 #include "JSON.h"
@@ -177,16 +179,9 @@ class FLAT {
   }
 
  public:
-  FLAT(const std::string &table) {
-    auto ok = parser.Parse(table.c_str());
-    if (!ok) { throw "Couldn't parse schema"; }
-  }
-
-  std::string parse(const void *flatbuffer) {
-    gen_code = "";
-    auto root = GetRoot(flatbuffer);
-    GenerateFlat(root, *parser.root_struct_def_);
-    return gen_code;
-  }
+  FLAT(const std::string &table);
+  std::string parse(const void *flatbuffer);
 };
+
 }  // namespace flat
+#endif /* flat_h */

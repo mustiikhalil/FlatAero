@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 #include "flat/flat.h"
@@ -48,8 +49,26 @@ void createTestNumbers() {
   testCreatingFLAT(schema_file, pointer);
 }
 
+void createTestThrowErrorJSON() {
+  try {
+    flat::JSON parser("");
+  } catch (const char *err) {
+    std::cerr << "Error named: " << err << std::endl;
+  }
+}
+
+void createTestThrowErrorFLAT() {
+  try {
+    flat::FLAT parser("");
+  } catch (const char *err) {
+    std::cerr << "Error named: " << err << std::endl;
+  }
+}
+
 int main(int /*argc*/, const char * /*argv*/[]) {
   createTestUser();
   createTestNumbers();
+  createTestThrowErrorJSON();
+  createTestThrowErrorFLAT();
   return 0;
 }

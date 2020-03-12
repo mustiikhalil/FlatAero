@@ -20,6 +20,7 @@ set(FLAT_Library_SRCS
 set(Flat_Tests_SRCS
   tests/user_generated.h
   tests/numbers_generated.h
+  src/flat/flat.cpp
   tests/testflat.cpp
 )
 
