@@ -10,12 +10,17 @@ import Foundation
 
 
 struct Flat {
+    
     fileprivate var parser = Wrapper()
     fileprivate var schema: String
     
     init(schema _s: String) { schema = _s }
     
     func parser(_ array: inout [UInt8], type: ParseType = .flat) throws -> String {
+        guard !array.isEmpty else {
+            throw Errors.invalidArrayInput
+        }
+        
         var err: NSError?
         var str = ""
         switch type {
@@ -27,7 +32,7 @@ struct Flat {
         }
         
         if let err = err {
-            throw err
+            throw Errors.libraryError(e: err)
         }
         
         return str
@@ -43,5 +48,9 @@ struct Flat {
     
     enum ParseType {
         case json, flat
+    }
+    
+    enum Errors: Error {
+        case invalidArrayInput, libraryError(e: Error)
     }
 }
