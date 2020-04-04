@@ -8,15 +8,19 @@
 
 import Foundation
 
-
 struct Flat {
     
     fileprivate var parser = Wrapper()
-    fileprivate var schema: String
+    fileprivate var schema: Schema
     
-    init(schema _s: String) { schema = _s }
+    init(schema _s: Schema) { schema = _s }
     
     func parser(_ array: inout [UInt8], type: ParseType = .flat) throws -> String {
+        
+        guard schema.isValid else {
+            throw Errors.schemaIsInvalid
+        }
+        
         guard !array.isEmpty else {
             throw Errors.invalidArrayInput
         }
@@ -39,11 +43,11 @@ struct Flat {
     }
     
     func json(_ array: inout [UInt8], err: inout NSError?) -> String {
-        return parser.printJSON(fromBuffer: &array, from: schema, error: &err)
+        return parser.printJSON(fromBuffer: &array, from: schema.input, error: &err)
     }
     
     func flat(_ array: inout [UInt8], err: inout NSError?) -> String {
-        return parser.printFLAT(fromBuffer: &array, from: schema, error: &err)
+        return parser.printFLAT(fromBuffer: &array, from: schema.input, error: &err)
     }
     
     enum ParseType {
@@ -51,6 +55,6 @@ struct Flat {
     }
     
     enum Errors: Error {
-        case invalidArrayInput, libraryError(e: Error)
+        case invalidArrayInput, libraryError(e: Error), schemaIsInvalid
     }
 }
