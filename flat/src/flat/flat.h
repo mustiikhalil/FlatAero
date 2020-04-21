@@ -1,6 +1,7 @@
 #ifndef flat_h
 #define flat_h
 
+#include <iostream>
 #include <string>
 
 #include "JSON.h"
@@ -153,13 +154,14 @@ class FLAT {
     const uint8_t *ptr = nullptr;
     for (auto it = struct_def.fields.vec.begin();
          it < struct_def.fields.vec.end(); ++it) {
-      auto field = **it;
+      FieldDef &field = **it;
       auto is_present =
           struct_def.fixed || table->CheckField(field.value.offset);
       if (is_present && !field.deprecated) {
+//        Table table = *table;
         std::string value =
             ReadScalarFields(field, table, struct_def, ptr, struct_def.fixed);
-        write(field.name, value, text);
+            write(field.name, "", text);
       }
       if (struct_def.fixed) {
         ptr = reinterpret_cast<const uint8_t *>(table) + field.value.offset;

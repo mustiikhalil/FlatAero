@@ -8,9 +8,11 @@
 
 import Cocoa
 
-class ImportFromFileController: NSViewController {
+class ImportFromFileController: NSViewController, ImportBinaryControllerDelegate {
     
     private var padding: NSEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
+    
+    var presenter: ImportBinaryPresenterDelegate!
     
     var importBinaryTable: NSLabel!
     var pathBinaryTextField: NSTextField!
@@ -20,11 +22,10 @@ class ImportFromFileController: NSViewController {
     var pathTextField: NSTextField!
     var importFBSFileButton: FlatAeroButton!
 
-    lazy var fbsTextViewController = TextViewController()
-    
-    lazy var uintArrayViewController: TextViewController = {
+    lazy var fbsTextViewController: TextViewController = {
         let controller = TextViewController()
-        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        controller.delegate = self
+        controller.textViewType = .fbsFile
         return controller
     }()
     
@@ -44,15 +45,55 @@ extension ImportFromFileController: BuildImportFileView, ImportFiles {
     @objc func importFile(_ sender: Any) {
         guard let type = (sender as? FlatAeroButton)?.type else { return }
         switch type {
-        case .fbsFile: importFile(in: view, type: type)
-        case .binary: importFile(in: view, type: type, fileTypes: ImportableTypes.BinaryFiles)
+        case .fbsFile:
+            importFile(in: view, type: type)
+            
+        case .binary:
+            importFile(in: view, type: type, fileTypes: ImportableTypes.BinaryFiles)
         }
     }
     
     func selectedFile(_ url: URL, ofType type: ImportableTypes) {
-        print(url)
+        do {
+            try openFile(from: url, type: type)
+            switch type {
+            case .binary:
+                pathBinaryTextField.stringValue = url.absoluteString
+                
+            case .fbsFile:
+                pathTextField.stringValue = url.absoluteString
+            }
+        } catch {
+            NotificationCenter.default.post(name: .flatAeroError, object: error)
+        }
     }
 
+    func set(data: Data) {
+        presenter.binaryFile = data
+    }
+    
+    func set(fbs: String) {
+        presenter.set(fbs)
+    }
+    
+    func present(fbs: String?) {
+        guard let fbs = fbs else { return }
+        fbsTextViewController.add(text: fbs)
+    }
+    
+}
+
+extension ImportFromFileController: TextViewcontrollerDelegate {
+    
+    func textDidChange(in type: ImportableTypes) {
+        switch type {
+        case .binary:
+            break
+            
+        case .fbsFile:
+            presenter.fbsFile = fbsTextViewController.text
+        }
+    }
 }
 
 extension ImportFromFileController {

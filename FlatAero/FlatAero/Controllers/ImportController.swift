@@ -8,7 +8,9 @@
 
 import Cocoa
 
-class ImportController: NSViewController {
+class ImportController: NSViewController, ImportControllerDelegate {
+
+    var presenter: ImportPresenterDelegate!
     
     lazy var displayFromArrayOrBinaryFile: NSSegmentedControl = {
         let control = NSSegmentedControl(labels: TypesOfDisplayers.types, trackingMode: .selectOne, target: self, action: #selector(handleSelection))
@@ -17,8 +19,17 @@ class ImportController: NSViewController {
         return control
     }()
     
-    lazy var importUIntArrayController = ImportFromUintArrayController()
-    lazy var importBinaryFileController = ImportFromFileController()
+    lazy var importUIntArrayController: ImportFromUintArrayController = {
+        let controller = ImportFromUintArrayController()
+        controller.presenter = ImportUIntArrayPresenter(controller: controller)
+        return controller
+    }()
+    
+    lazy var importBinaryFileController: ImportFromFileController = {
+        let controller = ImportFromFileController()
+        controller.presenter = ImportBinaryPresenter(controller: controller)
+        return controller
+    }()
     
     override func loadView() {
         view = NSView()
@@ -47,18 +58,23 @@ class ImportController: NSViewController {
 extension ImportController {
     
     @objc func handleSelection() {
-        guard let selection = TypesOfDisplayers(rawValue: displayFromArrayOrBinaryFile.indexOfSelectedItem) else { return }
-        switch selection {
-        case .file:
-            hideControllersAccordingToSelection(true)
-            
-        case .array:
-            hideControllersAccordingToSelection(false)
-        }
+        presenter.switchDisplayedControllers(of: displayFromArrayOrBinaryFile.indexOfSelectedItem)
     }
     
-    private func hideControllersAccordingToSelection(_ isHidden: Bool) {
+    func should(displayController isHidden: Bool) {
         importUIntArrayController.view.isHidden = isHidden
         importBinaryFileController.view.isHidden = !isHidden
     }
+    
+    func fetchData() -> ImportedData {
+        guard let selection = TypesOfDisplayers(rawValue: displayFromArrayOrBinaryFile.indexOfSelectedItem) else { fatalError("Selection has an issue!") }
+        switch selection {
+        case .array:
+            return importUIntArrayController.presenter.data
+            
+        case .file:
+            return importBinaryFileController.presenter.data
+        }
+    }
+    
 }

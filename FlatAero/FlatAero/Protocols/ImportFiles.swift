@@ -9,6 +9,8 @@
 import Cocoa
 
 protocol ImportFiles {
+    func set(data: Data)
+    func set(fbs: String)
     func selectedFile(_ url: URL, ofType type: ImportableTypes)
 }
 
@@ -29,5 +31,28 @@ extension ImportFiles {
                 self.selectedFile(panel.urls[0], ofType: type)
             }
         }
+    }
+    
+    func openFile(from url: URL, type: ImportableTypes) throws {
+        do {
+            let data = try Data(contentsOf: url)
+            switch type {
+            case .binary:
+                set(data: data)
+                
+            case .fbsFile:
+                let str = try buildStringFrom(data: data)
+                set(fbs: str)
+            }
+        } catch {
+            throw error
+        }
+    }
+    
+    func buildStringFrom(data: Data) throws -> String {
+        guard let str = String(data: data, encoding: .utf8) else {
+            throw Errors.couldntOpenFile
+        }
+        return str
     }
 }
