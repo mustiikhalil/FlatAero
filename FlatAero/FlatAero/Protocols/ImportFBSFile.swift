@@ -19,7 +19,7 @@ extension BuildImportFileView where Self: NSViewController {
     
     var importTableConstructor: NSLabel {
         let lbl = NSLabel()
-        lbl.stringValue = "Import Table"
+        lbl.stringValue = "Import Schema (.fbs)"
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return lbl

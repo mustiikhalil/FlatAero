@@ -17,12 +17,18 @@ struct Flat {
     
     func parser(_ array: inout [UInt8], type: ParseType = .flat) throws -> String {
         
-        guard schema.isValid else {
-            throw Errors.schemaIsInvalid
+        guard schema.hasRoot else {
+            throw Errors.schemaRequiresRoot
         }
         
         guard !array.isEmpty else {
             throw Errors.invalidArrayInput
+        }
+        
+        do {
+            try schema.doesntInclude()
+        } catch {
+            throw error
         }
         
         var err: NSError?
@@ -52,9 +58,5 @@ struct Flat {
     
     enum ParseType {
         case json, flat
-    }
-    
-    enum Errors: Error {
-        case invalidArrayInput, libraryError(e: Error), schemaIsInvalid
     }
 }

@@ -11,5 +11,5 @@ import Foundation
 enum ImportableTypes {
     case fbsFile, binary
     
-    static let BinaryFiles = ["mon", "bin", "bat"]
+    static let BinaryFiles = ["mon", "bin"]
 }

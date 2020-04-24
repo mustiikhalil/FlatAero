@@ -27,11 +27,20 @@
 		DF34288A2438E21700B911A7 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3428892438E21700B911A7 /* MainViewPresenter.swift */; };
 		DF34288D2438E3C200B911A7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34288C2438E3C200B911A7 /* Router.swift */; };
 		DF34288F2438E40400B911A7 /* MainViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34288E2438E40400B911A7 /* MainViewProtocols.swift */; };
+		DF497ED72451EBA600C78A3F /* ImportedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF497ED62451EBA600C78A3F /* ImportedData.swift */; };
 		DF4DFD21240CEA7A0093F6FD /* libflat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE2C744240C1F6E00EDD925 /* libflat.a */; };
 		DF75BE3D244F52E3009D6147 /* DecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF75BE3C244F52E3009D6147 /* DecoderViewController.swift */; };
 		DF75BE4D244F5437009D6147 /* PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF75BE4C244F5437009D6147 /* PlaceHolder.swift */; };
 		DF75BE4F244F54B9009D6147 /* ImportableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF75BE4E244F54B9009D6147 /* ImportableTypes.swift */; };
 		DF75BE51244F54CA009D6147 /* TypesOfDisplayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF75BE50244F54CA009D6147 /* TypesOfDisplayers.swift */; };
+		DF77137B24537D0000A1F215 /* notification+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF77137A24537D0000A1F215 /* notification+extension.swift */; };
+		DF788351244F8A0200B818E1 /* ImportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF788350244F8A0200B818E1 /* ImportPresenter.swift */; };
+		DF788363244F8CEE00B818E1 /* ImportsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF788362244F8CEE00B818E1 /* ImportsProtocols.swift */; };
+		DF788365244F8E4700B818E1 /* ImportUIntArrayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF788364244F8E4700B818E1 /* ImportUIntArrayPresenter.swift */; };
+		DF788367244F8EA800B818E1 /* ImportBinaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF788366244F8EA800B818E1 /* ImportBinaryPresenter.swift */; };
+		DF788369244F8F9C00B818E1 /* DecodeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF788368244F8F9C00B818E1 /* DecodeViewPresenter.swift */; };
+		DF78836B244F900900B818E1 /* DecodeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78836A244F900900B818E1 /* DecodeProtocols.swift */; };
+		DF78836D244F962800B818E1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78836C244F962800B818E1 /* Errors.swift */; };
 		DF95C949240D77BE009FA3C5 /* FlatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF95C948240D77BE009FA3C5 /* FlatTests.swift */; };
 		DFA06FC62445B2F600344A48 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA06FC52445B2F600344A48 /* MainMenu.xib */; };
 		DFAEDE37244E56C800B8E8CA /* FlatAeroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAEDE36244E56C800B8E8CA /* FlatAeroButton.swift */; };
@@ -153,10 +162,19 @@
 		DF3428892438E21700B911A7 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		DF34288C2438E3C200B911A7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DF34288E2438E40400B911A7 /* MainViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocols.swift; sourceTree = "<group>"; };
+		DF497ED62451EBA600C78A3F /* ImportedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedData.swift; sourceTree = "<group>"; };
 		DF75BE3C244F52E3009D6147 /* DecoderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderViewController.swift; sourceTree = "<group>"; };
 		DF75BE4C244F5437009D6147 /* PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolder.swift; sourceTree = "<group>"; };
 		DF75BE4E244F54B9009D6147 /* ImportableTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportableTypes.swift; sourceTree = "<group>"; };
 		DF75BE50244F54CA009D6147 /* TypesOfDisplayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfDisplayers.swift; sourceTree = "<group>"; };
+		DF77137A24537D0000A1F215 /* notification+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "notification+extension.swift"; sourceTree = "<group>"; };
+		DF788350244F8A0200B818E1 /* ImportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPresenter.swift; sourceTree = "<group>"; };
+		DF788362244F8CEE00B818E1 /* ImportsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportsProtocols.swift; sourceTree = "<group>"; };
+		DF788364244F8E4700B818E1 /* ImportUIntArrayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportUIntArrayPresenter.swift; sourceTree = "<group>"; };
+		DF788366244F8EA800B818E1 /* ImportBinaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportBinaryPresenter.swift; sourceTree = "<group>"; };
+		DF788368244F8F9C00B818E1 /* DecodeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeViewPresenter.swift; sourceTree = "<group>"; };
+		DF78836A244F900900B818E1 /* DecodeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeProtocols.swift; sourceTree = "<group>"; };
+		DF78836C244F962800B818E1 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		DF95C948240D77BE009FA3C5 /* FlatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatTests.swift; sourceTree = "<group>"; };
 		DFA06FC52445B2F600344A48 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		DFAEDE36244E56C800B8E8CA /* FlatAeroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatAeroButton.swift; sourceTree = "<group>"; };
@@ -279,6 +297,7 @@
 			children = (
 				DF269FB0244664100001C5A8 /* Colors+extenion.swift */,
 				DF09A940243A5097003FCFE6 /* NSView+Constraints.swift */,
+				DF77137A24537D0000A1F215 /* notification+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -290,6 +309,8 @@
 				DF75BE4C244F5437009D6147 /* PlaceHolder.swift */,
 				DF75BE4E244F54B9009D6147 /* ImportableTypes.swift */,
 				DF75BE50244F54CA009D6147 /* TypesOfDisplayers.swift */,
+				DF78836C244F962800B818E1 /* Errors.swift */,
+				DF497ED62451EBA600C78A3F /* ImportedData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +341,10 @@
 			children = (
 				DF3428892438E21700B911A7 /* MainViewPresenter.swift */,
 				DFF27C272442F6EB0039FE42 /* ImportFBSTextPresenter.swift */,
+				DF788350244F8A0200B818E1 /* ImportPresenter.swift */,
+				DF788364244F8E4700B818E1 /* ImportUIntArrayPresenter.swift */,
+				DF788366244F8EA800B818E1 /* ImportBinaryPresenter.swift */,
+				DF788368244F8F9C00B818E1 /* DecodeViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -331,6 +356,8 @@
 				DF34288E2438E40400B911A7 /* MainViewProtocols.swift */,
 				DF269FC4244665D00001C5A8 /* ImportFBSFile.swift */,
 				DFAEDE46244E593D00B8E8CA /* ImportFiles.swift */,
+				DF788362244F8CEE00B818E1 /* ImportsProtocols.swift */,
+				DF78836A244F900900B818E1 /* DecodeProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -597,21 +624,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF269FC3244665BA0001C5A8 /* ImportFromUintArrayController.swift in Sources */,
+				DF497ED72451EBA600C78A3F /* ImportedData.swift in Sources */,
 				DFAEDE47244E593D00B8E8CA /* ImportFiles.swift in Sources */,
+				DF788365244F8E4700B818E1 /* ImportUIntArrayPresenter.swift in Sources */,
 				DFF27C282442F6EB0039FE42 /* ImportFBSTextPresenter.swift in Sources */,
 				DF75BE4D244F5437009D6147 /* PlaceHolder.swift in Sources */,
 				DFE2C756240C205D00EDD925 /* FlatWrapper.swift in Sources */,
 				DF269FC7244666290001C5A8 /* ImportFromFileController.swift in Sources */,
 				DFAEDE37244E56C800B8E8CA /* FlatAeroButton.swift in Sources */,
+				DF788351244F8A0200B818E1 /* ImportPresenter.swift in Sources */,
+				DF77137B24537D0000A1F215 /* notification+extension.swift in Sources */,
 				DFF2D8AA240C362E00ADF561 /* Wrapper.mm in Sources */,
 				DF34288A2438E21700B911A7 /* MainViewPresenter.swift in Sources */,
+				DF788369244F8F9C00B818E1 /* DecodeViewPresenter.swift in Sources */,
 				DF34288F2438E40400B911A7 /* MainViewProtocols.swift in Sources */,
 				DFF27C2A2442F7960039FE42 /* TextViewController.swift in Sources */,
 				DF269FC1244665900001C5A8 /* NSLabel.swift in Sources */,
+				DF78836B244F900900B818E1 /* DecodeProtocols.swift in Sources */,
+				DF788363244F8CEE00B818E1 /* ImportsProtocols.swift in Sources */,
 				DF0E16B5244DACB4004EE7D4 /* Styling.swift in Sources */,
 				DF75BE51244F54CA009D6147 /* TypesOfDisplayers.swift in Sources */,
 				DF3428812438DB9F00B911A7 /* main.swift in Sources */,
 				DF269FB1244664100001C5A8 /* Colors+extenion.swift in Sources */,
+				DF788367244F8EA800B818E1 /* ImportBinaryPresenter.swift in Sources */,
 				DF34288D2438E3C200B911A7 /* Router.swift in Sources */,
 				DF269FC5244665D00001C5A8 /* ImportFBSFile.swift in Sources */,
 				DF3428842438DC5D00B911A7 /* MainViewController.swift in Sources */,
@@ -620,6 +655,7 @@
 				DF3428882438E11E00B911A7 /* MainViewRouter.swift in Sources */,
 				DF75BE3D244F52E3009D6147 /* DecoderViewController.swift in Sources */,
 				DFF27C182442F6B30039FE42 /* ImportController.swift in Sources */,
+				DF78836D244F962800B818E1 /* Errors.swift in Sources */,
 				DFD067CD244AF8CA00173B21 /* FBSStyling.swift in Sources */,
 				DF09A941243A5097003FCFE6 /* NSView+Constraints.swift in Sources */,
 				DF34287F2438D79B00B911A7 /* Schema.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class DecoderViewController: NSViewController {
+class DecoderViewController: NSViewController, DecodeViewControllerDelegate {
     
     lazy var decodedLabel: NSLabel = {
         let lbl = NSLabel()
@@ -27,7 +27,7 @@ class DecoderViewController: NSViewController {
     
     lazy var languagePopUpButton: NSPopUpButton = {
         let btn = NSPopUpButton()
-        btn.addItems(withTitles: ["FLAT", "JSON"])
+        btn.addItems(withTitles: ["JSON"]) //"FLAT",
         return btn
     }()
     
@@ -36,6 +36,8 @@ class DecoderViewController: NSViewController {
         controller.isEnabled = false
         return controller
     }()
+    
+    var presenter: DecodeViewPresenterDelegate!
     
     override func loadView() {
         view = NSView()
@@ -47,6 +49,12 @@ class DecoderViewController: NSViewController {
     }
     
     @objc func decode() {
+        presenter.type = .json
+        presenter.decode()
+    }
+    
+    func parsedBuffer(_ str: String) {
+        decodedTextViewController.add(text: str)
     }
 }
 
@@ -54,7 +62,7 @@ extension DecoderViewController {
     
     func setupView() {
         
-        let stackView = NSStackView(views: [languagePopUpButton, decodeButton])
+        let stackView = NSStackView(views: [NSView(), decodeButton])
         
         stackView.spacing = 50
         stackView.distribution = .fill

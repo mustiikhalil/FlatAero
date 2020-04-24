@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ImportFromUintArrayController: NSViewController {
+class ImportFromUintArrayController: NSViewController, ImportUIntControllerDelegate, TextViewcontrollerDelegate {
     
     private var padding: NSEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
     
@@ -16,7 +16,8 @@ class ImportFromUintArrayController: NSViewController {
     var pathTextField: NSTextField!
     var importFBSFileButton: FlatAeroButton!
     
-
+    var presenter: ImportUIntArrayPresenterDelegate!
+    
     lazy var createArray: NSLabel = {
         let lbl = NSLabel()
         lbl.stringValue = "Copy Paste an UInt8 Array"
@@ -27,11 +28,15 @@ class ImportFromUintArrayController: NSViewController {
     
     lazy var fbsTextViewController: TextViewController = {
         let controller = TextViewController()
+        controller.textViewType = .fbsFile
+        controller.delegate = self
         return controller
     }()
     
     lazy var uintArrayViewController: TextViewController = {
         let controller = TextViewController()
+        controller.textViewType = .binary
+        controller.delegate = self
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         return controller
     }()
@@ -46,12 +51,44 @@ class ImportFromUintArrayController: NSViewController {
     }
 }
 
-extension ImportFromUintArrayController: BuildImportFileView {
-    
-    func importFile(_ sender: Any) {
-        
+extension ImportFromUintArrayController: BuildImportFileView, ImportFiles {
+
+    @objc func importFile(_ sender: Any) {
+        guard let type = (sender as? FlatAeroButton)?.type, type == .fbsFile else { return }
+        importFile(in: view, type: type)
     }
     
+    func selectedFile(_ url: URL, ofType type: ImportableTypes) {
+        do {
+            try openFile(from: url, type: type)
+            guard type == .fbsFile else { return }
+            pathTextField.stringValue = url.absoluteString
+        } catch {
+            NotificationCenter.default.post(name: .flatAeroError, object: error)
+        }
+    }
+    
+    func set(data: Data) {}
+    
+    func set(fbs: String) {
+        presenter.set(fbs)
+    }
+    
+    func present(fbs: String?) {
+        guard let fbs = fbs else { return }
+        fbsTextViewController.add(text: fbs)
+    }
+    
+    func textDidChange(in type: ImportableTypes) {
+        switch type {
+        case .binary:
+            let modifiedText = uintArrayViewController.text.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
+            presenter.binaryData = modifiedText.components(separatedBy: ", ").map( { UInt8($0) }).compactMap({ $0 })
+            
+        case .fbsFile:
+            presenter.fbsFile = fbsTextViewController.text
+        }
+    }
     
     func setupView() {
         setupFBSImporterView()
@@ -70,6 +107,6 @@ extension ImportFromUintArrayController: BuildImportFileView {
         
         fbsTextViewController.view.topAnchor.constraint(equalTo: importFBSFileButton.bottomAnchor, constant: 10).isActive = true
         fbsTextViewController.view.anchorInSuperViewDisregarding(edges: .top, padding: padding)
-        fbsTextViewController.add(text: PlaceHolder.text)
+        importFBSFileButton.action = #selector(importFile)
     }
 }

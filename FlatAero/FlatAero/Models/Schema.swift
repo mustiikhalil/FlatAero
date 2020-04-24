@@ -11,7 +11,16 @@ import Foundation
 struct Schema {
     var input: String
     
-    var isValid: Bool {
+    var hasRoot: Bool {
         return input.contains("root_type")
+    }
+    
+    func doesntInclude() throws {
+        for line in input.components(separatedBy: "\n") {
+            let component = line.components(separatedBy: " ")
+            if component.contains("include") && !component.contains("//") {
+                throw Errors.flatAeroCantHandleImports
+            }
+        }
     }
 }

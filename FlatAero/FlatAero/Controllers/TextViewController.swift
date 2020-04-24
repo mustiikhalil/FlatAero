@@ -8,10 +8,23 @@
 
 import Cocoa
 
+protocol TextViewcontrollerDelegate: class {
+    func textDidChange(in type: ImportableTypes)
+}
+
 class TextViewController: NSViewController, NSTextViewDelegate {
     
     var styler: Styling!
     var highlightedText: String = ""
+    
+    var textViewType: ImportableTypes!
+    var text: String {
+        get {
+            return textView.string
+        }
+    }
+    
+    weak var delegate: TextViewcontrollerDelegate?
     
     fileprivate lazy var textStorage = NSTextStorage()
     fileprivate lazy var layoutManager = NSLayoutManager()
@@ -87,6 +100,11 @@ extension TextViewController {
     func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
         return isEnabled
     }
+    
+    func textDidChange(_ notification: Notification) {
+        guard notification.name == NSText.didChangeNotification else { return }
+        delegate?.textDidChange(in: textViewType)
+    }
 }
 
 extension TextViewController: NSTextStorageDelegate {
@@ -95,6 +113,7 @@ extension TextViewController: NSTextStorageDelegate {
                      didProcessEditing editedMask: NSTextStorageEditActions,
                      range editedRange: NSRange,
                      changeInLength delta: Int) {
+        
         //        styler.style(text: textView.string, for: textView)
         //        textView.needsDisplay = true
     }

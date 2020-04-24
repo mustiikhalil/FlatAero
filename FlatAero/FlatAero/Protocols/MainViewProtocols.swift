@@ -13,3 +13,9 @@ protocol MainViewRouterDelegate: class {}
 protocol MainViewPresenterDelegate: class {}
 
 protocol MainViewControllerPresenterDelegate: class {}
+
+protocol MainViewControllerImportsDelegate: class {}
+
+protocol MainViewControllerDecodeDelegate: class {
+    func decode() -> Bool
+}

@@ -8,17 +8,19 @@
 
 import Cocoa
 
-class MainViewController: NSViewController {
+class MainViewController: NSViewController, MainViewControllerImportsDelegate {
     
     var presenter: MainViewPresenterDelegate?
     
     lazy var importController: ImportController = {
         let controller = ImportController()
+        controller.presenter = ImportPresenter(importControllerDelegate: controller, parent: self)
         return controller
     }()
     
     lazy var decoderController: DecoderViewController = {
         let controller = DecoderViewController()
+        controller.presenter = DecodeViewPresenter(controller: controller, parent: self)
         return controller
     }()
     
@@ -50,8 +52,35 @@ class MainViewController: NSViewController {
         decoderController.view.widthAnchor.constraint(equalTo: importController.view.widthAnchor).isActive = true
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        NotificationCenter.default.addObserver(self, selector: #selector(handle), name: .flatAeroError, object: nil)
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+extension MainViewController: MainViewControllerDecodeDelegate {
+    
+    func decode() -> Bool {
+        let importedData = importController.presenter.prepareData()
+        decoderController.presenter.importedData = importedData
+        return importedData.validate
+    }
 }
 
 extension MainViewController: MainViewControllerPresenterDelegate {
     
+    @objc func handle(_ notification: Notification) {
+        guard notification.name == .flatAeroError, let err = notification.object as? Errors else { return }
+        let alert = NSAlert()
+        alert.messageText = "Error"
+        alert.informativeText = err.errorDescription ?? "Unknown Error Occurred"
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
+    }
 }
