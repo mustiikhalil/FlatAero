@@ -29,6 +29,7 @@ class ImportFromUintArrayController: NSViewController, ImportUIntControllerDeleg
     lazy var fbsTextViewController: TextViewController = {
         let controller = TextViewController()
         controller.textViewType = .fbsFile
+        controller.placeHolderText = PlaceHolder.fbsTable
         controller.delegate = self
         return controller
     }()
@@ -36,6 +37,7 @@ class ImportFromUintArrayController: NSViewController, ImportUIntControllerDeleg
     lazy var uintArrayViewController: TextViewController = {
         let controller = TextViewController()
         controller.textViewType = .binary
+        controller.placeHolderText = PlaceHolder.exampleArray
         controller.delegate = self
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         return controller
