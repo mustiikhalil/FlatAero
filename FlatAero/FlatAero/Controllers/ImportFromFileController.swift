@@ -25,6 +25,7 @@ class ImportFromFileController: NSViewController, ImportBinaryControllerDelegate
     lazy var fbsTextViewController: TextViewController = {
         let controller = TextViewController()
         controller.delegate = self
+        controller.placeHolderText = PlaceHolder.fbsTable
         controller.textViewType = .fbsFile
         return controller
     }()
@@ -69,6 +70,7 @@ extension ImportFromFileController: BuildImportFileView, ImportFiles {
     }
 
     func set(data: Data) {
+        print(data.map { $0 })
         presenter.binaryFile = data
     }
     
@@ -132,6 +134,6 @@ extension ImportFromFileController {
         
         importerViewStack.topAnchor.constraint(equalTo: importBinaryTable.bottomAnchor, constant: 10).isActive = true
         importerViewStack.anchorInSuperViewDisregarding(edges: .top, .bottom, padding: .init(top: 8, left: 8, bottom: 8, right: 8))
-        fbsTextViewController.add(text: PlaceHolder.text)
+//        fbsTextViewController.add(text: PlaceHolder.)
     }
 }
