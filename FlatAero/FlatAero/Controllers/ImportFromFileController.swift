@@ -70,7 +70,6 @@ extension ImportFromFileController: BuildImportFileView, ImportFiles {
     }
 
     func set(data: Data) {
-        print(data.map { $0 })
         presenter.binaryFile = data
     }
     

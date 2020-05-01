@@ -50,6 +50,7 @@ class DecoderViewController: NSViewController, DecodeViewControllerDelegate {
     
     @objc func decode() {
         presenter.type = .json
+        decodedTextViewController.remove()
         presenter.decode()
     }
     
