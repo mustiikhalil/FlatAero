@@ -27,7 +27,7 @@ class DecoderViewController: NSViewController, DecodeViewControllerDelegate {
     
     lazy var languagePopUpButton: NSPopUpButton = {
         let btn = NSPopUpButton()
-        btn.addItems(withTitles: ["JSON"]) //"FLAT",
+        btn.addItems(withTitles: ["FLAT", "JSON"])
         return btn
     }()
     
@@ -49,7 +49,7 @@ class DecoderViewController: NSViewController, DecodeViewControllerDelegate {
     }
     
     @objc func decode() {
-        presenter.type = .json
+        presenter.type = Flat.ParseType(rawValue: languagePopUpButton.indexOfSelectedItem) ?? .flat
         decodedTextViewController.remove()
         presenter.decode()
     }
@@ -63,7 +63,7 @@ extension DecoderViewController {
     
     func setupView() {
         
-        let stackView = NSStackView(views: [NSView(), decodeButton])
+        let stackView = NSStackView(views: [languagePopUpButton, decodeButton])
         
         stackView.spacing = 50
         stackView.distribution = .fill
