@@ -56,7 +56,7 @@ struct Flat {
         return parser.printFLAT(fromBuffer: &array, from: schema.input, error: &err)
     }
     
-    enum ParseType {
-        case json, flat
+    enum ParseType: Int {
+        case flat, json
     }
 }
