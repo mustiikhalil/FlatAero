@@ -12,4 +12,5 @@ flat/flatbuffers-build
 **/CPackConfig.cmake
 **/CPackSourceConfig.cmake
 **/CTestTestfile.cmake
+**/cmake-build-debug
 .vscode
