@@ -20,8 +20,8 @@ class FLAT {
     if (inden_lvl) inden_lvl -= 2;
   }
 
-  void write(const std::string field_name, const std::string value,
-             std::string &text) {
+  void write(const std::string field_name, std::string &text,
+             const std::string value) {
     text +=
         (std::string(inden_lvl, ' ') + "- " + field_name + ": " + value + "\n");
   }
@@ -55,7 +55,7 @@ class FLAT {
         fd.value.type);
   }
 
-  std::string ReadScalarFields(const FieldDef fd, const Table *table,
+  std::string ReadScalarFields(const FieldDef &fd, const Table *table,
                                const StructDef &struct_def,
                                const uint8_t *prev_val, const bool fixed) {
     switch (fd.value.type.base_type) {
@@ -86,7 +86,7 @@ class FLAT {
     }
   }
 
-  std::string GetOffset(const FieldDef fd, const Table *table,
+  std::string GetOffset(const FieldDef &fd, const Table *table,
                         const StructDef &struct_def, const uint8_t *prev_val,
                         const bool fixed) {
     const void *val = nullptr;
@@ -137,6 +137,11 @@ class FLAT {
           return "UNKNOWN";
         }
       }
+      case flatbuffers::BASE_TYPE_ARRAY: {
+          
+          return "[]";
+      }
+      case flatbuffers::BASE_TYPE_VECTOR: return "[]";
       default: return "UNKNOWN";
     }
   }
@@ -149,7 +154,7 @@ class FLAT {
 
   void GenerateBody(const Table *table, const StructDef &struct_def,
                     std::string &text, const std::string &body_type) {
-    write(body_type, struct_def.name + " -", text);
+    write(body_type, text, struct_def.name + " -");
     incrementIndentation();
     const uint8_t *ptr = nullptr;
     for (auto it = struct_def.fields.vec.begin();
@@ -158,10 +163,9 @@ class FLAT {
       auto is_present =
           struct_def.fixed || table->CheckField(field.value.offset);
       if (is_present && !field.deprecated) {
-//        Table table = *table;
-        std::string value =
+        auto value =
             ReadScalarFields(field, table, struct_def, ptr, struct_def.fixed);
-            write(field.name, "", text);
+        write(field.name, text, value);
       }
       if (struct_def.fixed) {
         ptr = reinterpret_cast<const uint8_t *>(table) + field.value.offset;
@@ -174,7 +178,7 @@ class FLAT {
 
   void GenerateFlat(const Table *table, const StructDef &struct_def) {
     std::string text;
-    GenerateBody(table, struct_def, text, "Root");
+    GenerateBody(table, struct_def, text, "RootType");
     gen_code += text;
     decrementIndentation();
     gen_code += "----";
