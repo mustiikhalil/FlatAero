@@ -108,7 +108,7 @@ class FLAT {
     switch (type.base_type) {
       case flatbuffers::BASE_TYPE_STRING: {
         auto s = reinterpret_cast<const String *>(val);
-        flatbuffers::EscapeString(s->c_str(), s->size(), &text, true, true);
+        flatbuffers::EscapeString(s->c_str(), s->size(), &text, false, false);
         return text;
       }
       case flatbuffers::BASE_TYPE_STRUCT: {
