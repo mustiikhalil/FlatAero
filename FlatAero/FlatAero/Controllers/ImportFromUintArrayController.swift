@@ -84,8 +84,9 @@ extension ImportFromUintArrayController: BuildImportFileView, ImportFiles {
     func textDidChange(in type: ImportableTypes) {
         switch type {
         case .binary:
-            let modifiedText = uintArrayViewController.text.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
-            presenter.binaryData = modifiedText.components(separatedBy: ", ").map( { UInt8($0) }).compactMap({ $0 })
+            var modifiedText = uintArrayViewController.text.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
+            modifiedText = modifiedText.replacingOccurrences(of: " ", with: "")
+            presenter.binaryData = modifiedText.components(separatedBy: ",").map( { UInt8($0) }).compactMap({ $0 })
             
         case .fbsFile:
             presenter.fbsFile = fbsTextViewController.text
