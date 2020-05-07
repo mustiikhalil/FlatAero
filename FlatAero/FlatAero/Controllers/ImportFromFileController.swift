@@ -25,7 +25,6 @@ class ImportFromFileController: NSViewController, ImportBinaryControllerDelegate
     lazy var fbsTextViewController: TextViewController = {
         let controller = TextViewController()
         controller.delegate = self
-        controller.placeHolderText = PlaceHolder.fbsTable
         controller.textViewType = .fbsFile
         return controller
     }()

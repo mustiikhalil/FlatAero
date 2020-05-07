@@ -31,25 +31,8 @@ class TextViewController: NSViewController, NSTextViewDelegate {
     fileprivate lazy var textContainer = NSTextContainer()
     fileprivate lazy var textView: NSTextView = NSTextView(frame: CGRect(), textContainer: textContainer)
     fileprivate lazy var scrollview = NSScrollView()
-    
-    fileprivate lazy var placeHolder: NSLabel = {
-        let lbl = NSLabel()
-        lbl.textColor = NSColor.lightGray
-        return lbl
-    }()
-    
+        
     var isEnabled: Bool = true
-    
-    var isPlaceHolderHidden: Bool {
-        set {
-            placeHolder.isHidden = !newValue
-        }
-        get {
-            placeHolder.isHidden
-        }
-    }
-    
-    var placeHolderText: String?
     
     override func loadView() {
         view = NSView()
@@ -57,10 +40,9 @@ class TextViewController: NSViewController, NSTextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(scrollview)
+        setupLayout()
         // Set `true` to enable horizontal scrolling.
         setupUI(isHorizontalScrollingEnabled: false)
-        setupLayout()
         setupTextStack()
     }
     
@@ -73,7 +55,6 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         let att = [NSAttributedString.Key.foregroundColor: NSColor.white, .font: NSFont.systemFont(ofSize: 14)]
         textView.textStorage?.append(NSAttributedString(string: text,
                                                         attributes: att))
-        isPlaceHolderHidden = false
     }
     
 }
@@ -111,13 +92,9 @@ extension TextViewController {
     }
     
     fileprivate func setupLayout() {
+        view.addSubview(scrollview)
         scrollview.translatesAutoresizingMaskIntoConstraints = false
         scrollview.fillSuperView()
-        
-        view.addSubview(placeHolder)
-        placeHolder.anchorInSuperViewDisregarding(edges: .bottom, .trailing, padding: .init(top: 0, left: 6, bottom: 0, right: 0))
-        guard let str = placeHolderText else { return }
-        placeHolder.stringValue = str
     }
     
     func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
@@ -127,7 +104,6 @@ extension TextViewController {
     func textDidChange(_ notification: Notification) {
         guard notification.name == NSText.didChangeNotification else { return }
         delegate?.textDidChange(in: textViewType)
-        isPlaceHolderHidden = text.isEmpty
     }
 }
 

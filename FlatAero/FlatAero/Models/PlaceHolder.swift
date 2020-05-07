@@ -34,7 +34,5 @@ struct PlaceHolder {
     static let exampleArray =
     """
     Enter an Array without brackets separating each Uint by a comma
-    27, 0, 0, 0, 87, 101, 32, 60, 51, 32, 70, 108, 97, 116, 98, 117,
-    102, 102, 101, 114, 115, 33, 32, 70, 108, 97, 116, 65, 101, 114, 111, 0
     """
 }

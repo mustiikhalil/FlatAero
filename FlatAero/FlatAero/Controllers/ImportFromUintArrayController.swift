@@ -20,7 +20,7 @@ class ImportFromUintArrayController: NSViewController, ImportUIntControllerDeleg
     
     lazy var createArray: NSLabel = {
         let lbl = NSLabel()
-        lbl.stringValue = "Copy Paste an UInt8 Array"
+        lbl.stringValue = "\(PlaceHolder.exampleArray)"
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return lbl
@@ -29,7 +29,6 @@ class ImportFromUintArrayController: NSViewController, ImportUIntControllerDeleg
     lazy var fbsTextViewController: TextViewController = {
         let controller = TextViewController()
         controller.textViewType = .fbsFile
-        controller.placeHolderText = PlaceHolder.fbsTable
         controller.delegate = self
         return controller
     }()
@@ -37,7 +36,6 @@ class ImportFromUintArrayController: NSViewController, ImportUIntControllerDeleg
     lazy var uintArrayViewController: TextViewController = {
         let controller = TextViewController()
         controller.textViewType = .binary
-        controller.placeHolderText = PlaceHolder.exampleArray
         controller.delegate = self
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         return controller
