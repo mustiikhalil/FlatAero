@@ -9,11 +9,11 @@
 import Foundation
 
 protocol DecodeViewPresenterDelegate: Presenter {
-    var importedData: ImportedData? { get set }
-    var type: Flat.ParseType { get set }
-    func decode()
+  var importedData: ImportedData? { get set }
+  var type: Flat.ParseType { get set }
+  func decode()
 }
 
 protocol DecodeViewControllerDelegate: class {
-    func parsedBuffer(_ str: String)
+  func parsedBuffer(_ str: String)
 }

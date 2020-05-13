@@ -9,5 +9,5 @@
 import Foundation
 
 extension Notification.Name {
-    static let flatAeroError = Notification.Name(rawValue: "flataero-error")
+  static let flatAeroError = Notification.Name(rawValue: "flataero-error")
 }

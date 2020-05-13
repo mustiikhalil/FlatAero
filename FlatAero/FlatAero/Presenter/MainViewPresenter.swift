@@ -9,12 +9,12 @@
 import Foundation
 
 class MainViewPresenter: NSObject, MainViewPresenterDelegate {
-    
-    weak var controller: MainViewControllerPresenterDelegate?
-    weak var router: MainViewRouterDelegate?
-    
-    init(controller: MainViewControllerPresenterDelegate, router: MainViewRouterDelegate) {
-        self.controller = controller
-        self.router = router
-    }
+  
+  weak var controller: MainViewControllerPresenterDelegate?
+  weak var router: MainViewRouterDelegate?
+  
+  init(controller: MainViewControllerPresenterDelegate, router: MainViewRouterDelegate) {
+    self.controller = controller
+    self.router = router
+  }
 }

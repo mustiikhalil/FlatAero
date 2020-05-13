@@ -9,21 +9,21 @@
 import Cocoa
 
 class MainViewRouter: Router {
+  
+  var navigation: NSViewController!
+  
+  init() {}
+  
+  func start() {
+    let controller = MainViewController()
+    let presenter = MainViewPresenter(controller: controller, router: self)
+    controller.presenter = presenter
     
-    var navigation: NSViewController!
-    
-    init() {}
-    
-    func start() {
-        let controller = MainViewController()
-        let presenter = MainViewPresenter(controller: controller, router: self)
-        controller.presenter = presenter
-        
-        navigation = controller
-    }
-    
+    navigation = controller
+  }
+  
 }
 
 extension MainViewRouter: MainViewRouterDelegate {
-    
+  
 }

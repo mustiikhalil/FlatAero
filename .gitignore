@@ -14,3 +14,4 @@ flat/flatbuffers-build
 **/CTestTestfile.cmake
 **/cmake-build-debug
 .vscode
+**/keys.mon

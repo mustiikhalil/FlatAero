@@ -9,10 +9,10 @@
 import Foundation
 
 struct ImportedData {
-    var buffer: [UInt8]?
-    var table: String?
-    
-    var validate: Bool {
-        return table != nil && buffer != nil
-    }
+  var buffer: [UInt8]?
+  var table: String?
+  
+  var validate: Bool {
+    return table != nil && buffer != nil
+  }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 enum ImportableTypes {
-    case fbsFile, binary
-    
-    static let BinaryFiles = ["mon", "bin"]
+  case fbsFile, binary
+  
+  static let BinaryFiles = ["mon", "bin"]
 }

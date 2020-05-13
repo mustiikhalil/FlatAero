@@ -12,12 +12,12 @@ protocol TextPresenterDelegate: class {}
 protocol TextPresenterControllerDelegate: class {}
 
 class ImportFBSTextPresenter: NSObject, TextPresenterDelegate {
-    
-    weak var controller: TextPresenterControllerDelegate?
-    weak var mainPresenter: MainViewPresenterDelegate?
-    
-    init(controller: TextPresenterControllerDelegate, mainPresenter: MainViewPresenterDelegate?) {
-        self.controller = controller
-        self.mainPresenter = mainPresenter
-    }
+  
+  weak var controller: TextPresenterControllerDelegate?
+  weak var mainPresenter: MainViewPresenterDelegate?
+  
+  init(controller: TextPresenterControllerDelegate, mainPresenter: MainViewPresenterDelegate?) {
+    self.controller = controller
+    self.mainPresenter = mainPresenter
+  }
 }

@@ -11,5 +11,5 @@ import Foundation
 protocol Presenter: class {}
 
 protocol Router {
-    func start()
+  func start()
 }
