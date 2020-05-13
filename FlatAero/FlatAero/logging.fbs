@@ -1,0 +1,7 @@
+table LogKeys {
+  appId: string;
+  encryption: string;
+  appSecret: string;
+}
+
+root_type LogKeys;

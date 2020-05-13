@@ -9,22 +9,22 @@
 import Foundation
 
 class ImportBinaryPresenter: NSObject, ImportBinaryPresenterDelegate {
-    
-    var fbsFile: String?
-    var binaryFile: Data?
-    
-    var data: ImportedData {
-        return ImportedData(buffer: binaryFile?.map({ $0 }), table: fbsFile)
-    }
-    
-    weak var controller: ImportBinaryControllerDelegate?
-    
-    init(controller: ImportBinaryControllerDelegate) {
-        self.controller = controller
-    }
-    
-    func set(_ fbs: String) {
-        fbsFile = fbs
-        controller?.present(fbs: fbs)
-    }
+  
+  var fbsFile: String?
+  var binaryFile: Data?
+  
+  var data: ImportedData {
+    return ImportedData(buffer: binaryFile?.map({ $0 }), table: fbsFile)
+  }
+  
+  weak var controller: ImportBinaryControllerDelegate?
+  
+  init(controller: ImportBinaryControllerDelegate) {
+    self.controller = controller
+  }
+  
+  func set(_ fbs: String) {
+    fbsFile = fbs
+    controller?.present(fbs: fbs)
+  }
 }

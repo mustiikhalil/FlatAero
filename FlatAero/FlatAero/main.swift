@@ -9,11 +9,13 @@
 import Cocoa
 
 func addMenu() {
-    let myApp: NSApplication = NSApplication.shared
-    let mainBundle: Bundle = Bundle.main
-    let mainNibFileBaseName: String = mainBundle.infoDictionary!["NSMainNibFile"] as! String
-    mainBundle.loadNibNamed(mainNibFileBaseName, owner: myApp, topLevelObjects: nil)
+  let myApp: NSApplication = NSApplication.shared
+  let mainBundle: Bundle = Bundle.main
+  let mainNibFileBaseName: String = mainBundle.infoDictionary!["NSMainNibFile"] as! String
+  mainBundle.loadNibNamed(mainNibFileBaseName, owner: myApp, topLevelObjects: nil)
 }
+
+Logging.__init()
 
 let delegate = AppDelegate()
 

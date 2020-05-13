@@ -9,37 +9,37 @@
 import Cocoa
 
 extension NSView {
-    
-    enum Edges {
-        case top, bottom, leading, trailing
+  
+  enum Edges {
+    case top, bottom, leading, trailing
+  }
+  
+  func fillSuperView(padding: NSEdgeInsets = .init()) {
+    translatesAutoresizingMaskIntoConstraints = false
+    if let _super = superview {
+      NSLayoutConstraint.activate([
+        topAnchor.constraint(equalTo: _super.topAnchor, constant: padding.top),
+        bottomAnchor.constraint(equalTo: _super.bottomAnchor, constant: -padding.bottom),
+        leadingAnchor.constraint(equalTo: _super.leadingAnchor, constant: padding.left),
+        trailingAnchor.constraint(equalTo: _super.trailingAnchor, constant: -padding.right)
+      ])
     }
+  }
+  
+  func anchorInSuperViewDisregarding(edges: Edges..., padding: NSEdgeInsets = .init()) {
+    translatesAutoresizingMaskIntoConstraints = false
     
-    func fillSuperView(padding: NSEdgeInsets = .init()) {
-        translatesAutoresizingMaskIntoConstraints = false
-        if let _super = superview {
-            NSLayoutConstraint.activate([
-                topAnchor.constraint(equalTo: _super.topAnchor, constant: padding.top),
-                bottomAnchor.constraint(equalTo: _super.bottomAnchor, constant: -padding.bottom),
-                leadingAnchor.constraint(equalTo: _super.leadingAnchor, constant: padding.left),
-                trailingAnchor.constraint(equalTo: _super.trailingAnchor, constant: -padding.right)
-            ])
-        }
+    if let _super = superview, !edges.contains(.top) {
+      topAnchor.constraint(equalTo: _super.topAnchor, constant: padding.top).isActive = true
     }
-    
-    func anchorInSuperViewDisregarding(edges: Edges..., padding: NSEdgeInsets = .init()) {
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        if let _super = superview, !edges.contains(.top) {
-            topAnchor.constraint(equalTo: _super.topAnchor, constant: padding.top).isActive = true
-        }
-        if let _super = superview, !edges.contains(.bottom) {
-            bottomAnchor.constraint(equalTo: _super.bottomAnchor, constant: -padding.bottom).isActive = true
-        }
-        if let _super = superview, !edges.contains(.leading) {
-            leadingAnchor.constraint(equalTo: _super.leadingAnchor, constant: padding.left).isActive = true
-        }
-        if let _super = superview, !edges.contains(.trailing) {
-            trailingAnchor.constraint(equalTo: _super.trailingAnchor, constant: -padding.right).isActive = true
-        }
+    if let _super = superview, !edges.contains(.bottom) {
+      bottomAnchor.constraint(equalTo: _super.bottomAnchor, constant: -padding.bottom).isActive = true
     }
+    if let _super = superview, !edges.contains(.leading) {
+      leadingAnchor.constraint(equalTo: _super.leadingAnchor, constant: padding.left).isActive = true
+    }
+    if let _super = superview, !edges.contains(.trailing) {
+      trailingAnchor.constraint(equalTo: _super.trailingAnchor, constant: -padding.right).isActive = true
+    }
+  }
 }
