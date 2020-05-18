@@ -65,10 +65,8 @@ class MainViewController: NSViewController, MainViewControllerImportsDelegate {
 
 extension MainViewController: MainViewControllerDecodeDelegate {
   
-  func decode() -> Bool {
-    let importedData = importController.presenter.prepareData()
-    decoderController.presenter.importedData = importedData
-    return importedData.validate
+  func fetchData() -> ImportedData {
+    return importController.presenter.prepareData()
   }
 }
 

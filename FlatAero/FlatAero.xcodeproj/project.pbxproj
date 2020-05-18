@@ -13,6 +13,10 @@
 		DF009CA223FC14CA006DF207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF009CA023FC14CA006DF207 /* Main.storyboard */; };
 		DF009CAE23FC14CA006DF207 /* FlatAeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CAD23FC14CA006DF207 /* FlatAeroTests.swift */; };
 		DF009CB923FC14CA006DF207 /* FlatAeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */; };
+		DF03B53D247312390028FB07 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03B53C247312390028FB07 /* BaseOperation.swift */; };
+		DF03B53F2473126A0028FB07 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03B53E2473126A0028FB07 /* AsyncOperation.swift */; };
+		DF03B541247312A50028FB07 /* ValidateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03B540247312A50028FB07 /* ValidateOperation.swift */; };
+		DF03B543247312B60028FB07 /* ChainedAsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03B542247312B60028FB07 /* ChainedAsyncOperation.swift */; };
 		DF09A941243A5097003FCFE6 /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF09A940243A5097003FCFE6 /* NSView+Constraints.swift */; };
 		DF0E16B5244DACB4004EE7D4 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0E16B4244DACB4004EE7D4 /* Styling.swift */; };
 		DF269FB1244664100001C5A8 /* Colors+extenion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF269FB0244664100001C5A8 /* Colors+extenion.swift */; };
@@ -49,6 +53,7 @@
 		DF78836D244F962800B818E1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78836C244F962800B818E1 /* Errors.swift */; };
 		DF95C949240D77BE009FA3C5 /* FlatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF95C948240D77BE009FA3C5 /* FlatTests.swift */; };
 		DFA06FC62445B2F600344A48 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA06FC52445B2F600344A48 /* MainMenu.xib */; };
+		DFA8BDB0247315750006D34D /* DecodeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8BDAF247315750006D34D /* DecodeOperation.swift */; };
 		DFAEDE37244E56C800B8E8CA /* FlatAeroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAEDE36244E56C800B8E8CA /* FlatAeroButton.swift */; };
 		DFAEDE47244E593D00B8E8CA /* ImportFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAEDE46244E593D00B8E8CA /* ImportFiles.swift */; };
 		DFD067CD244AF8CA00173B21 /* FBSStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD067CC244AF8CA00173B21 /* FBSStyling.swift */; };
@@ -154,6 +159,10 @@
 		DF009CB423FC14CA006DF207 /* FlatAeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatAeroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF009CB823FC14CA006DF207 /* FlatAeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatAeroUITests.swift; sourceTree = "<group>"; };
 		DF009CBA23FC14CA006DF207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF03B53C247312390028FB07 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		DF03B53E2473126A0028FB07 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		DF03B540247312A50028FB07 /* ValidateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateOperation.swift; sourceTree = "<group>"; };
+		DF03B542247312B60028FB07 /* ChainedAsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedAsyncOperation.swift; sourceTree = "<group>"; };
 		DF09A940243A5097003FCFE6 /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		DF0E16B4244DACB4004EE7D4 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 		DF269FB0244664100001C5A8 /* Colors+extenion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+extenion.swift"; sourceTree = "<group>"; };
@@ -187,6 +196,7 @@
 		DF78836C244F962800B818E1 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		DF95C948240D77BE009FA3C5 /* FlatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatTests.swift; sourceTree = "<group>"; };
 		DFA06FC52445B2F600344A48 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		DFA8BDAF247315750006D34D /* DecodeOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeOperation.swift; sourceTree = "<group>"; };
 		DFAEDE36244E56C800B8E8CA /* FlatAeroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatAeroButton.swift; sourceTree = "<group>"; };
 		DFAEDE46244E593D00B8E8CA /* ImportFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFiles.swift; sourceTree = "<group>"; };
 		DFD067CC244AF8CA00173B21 /* FBSStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSStyling.swift; sourceTree = "<group>"; };
@@ -257,6 +267,7 @@
 		DF009C9623FC14C9006DF207 /* FlatAero */ = {
 			isa = PBXGroup;
 			children = (
+				DF03B52D247312260028FB07 /* Operations */,
 				DFD067BD244AF8B900173B21 /* Styles */,
 				DFA06FD52445B34400344A48 /* UI */,
 				DF09A931243A5085003FCFE6 /* Extension */,
@@ -306,6 +317,26 @@
 				DF009CBA23FC14CA006DF207 /* Info.plist */,
 			);
 			path = FlatAeroUITests;
+			sourceTree = "<group>";
+		};
+		DF03B52D247312260028FB07 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				DF03B544247312F60028FB07 /* BaseOperations */,
+				DF03B540247312A50028FB07 /* ValidateOperation.swift */,
+				DFA8BDAF247315750006D34D /* DecodeOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		DF03B544247312F60028FB07 /* BaseOperations */ = {
+			isa = PBXGroup;
+			children = (
+				DF03B53C247312390028FB07 /* BaseOperation.swift */,
+				DF03B53E2473126A0028FB07 /* AsyncOperation.swift */,
+				DF03B542247312B60028FB07 /* ChainedAsyncOperation.swift */,
+			);
+			path = BaseOperations;
 			sourceTree = "<group>";
 		};
 		DF09A931243A5085003FCFE6 /* Extension */ = {
@@ -658,6 +689,7 @@
 				DF75BE4D244F5437009D6147 /* PlaceHolder.swift in Sources */,
 				DFE2C756240C205D00EDD925 /* FlatWrapper.swift in Sources */,
 				DF269FC7244666290001C5A8 /* ImportFromFileController.swift in Sources */,
+				DF03B53D247312390028FB07 /* BaseOperation.swift in Sources */,
 				DFAEDE37244E56C800B8E8CA /* FlatAeroButton.swift in Sources */,
 				DF788351244F8A0200B818E1 /* ImportPresenter.swift in Sources */,
 				DF77137B24537D0000A1F215 /* notification+extension.swift in Sources */,
@@ -665,6 +697,7 @@
 				DF34288A2438E21700B911A7 /* MainViewPresenter.swift in Sources */,
 				DF788369244F8F9C00B818E1 /* DecodeViewPresenter.swift in Sources */,
 				DF34288F2438E40400B911A7 /* MainViewProtocols.swift in Sources */,
+				DF03B543247312B60028FB07 /* ChainedAsyncOperation.swift in Sources */,
 				DFF27C2A2442F7960039FE42 /* TextViewController.swift in Sources */,
 				DF269FC1244665900001C5A8 /* NSLabel.swift in Sources */,
 				DF78836B244F900900B818E1 /* DecodeProtocols.swift in Sources */,
@@ -680,12 +713,15 @@
 				DF3428842438DC5D00B911A7 /* MainViewController.swift in Sources */,
 				DF75BE4F244F54B9009D6147 /* ImportableTypes.swift in Sources */,
 				DF009C9823FC14C9006DF207 /* AppDelegate.swift in Sources */,
+				DFA8BDB0247315750006D34D /* DecodeOperation.swift in Sources */,
 				DF3428882438E11E00B911A7 /* MainViewRouter.swift in Sources */,
 				DF75BE3D244F52E3009D6147 /* DecoderViewController.swift in Sources */,
 				DFF27C182442F6B30039FE42 /* ImportController.swift in Sources */,
 				DF78836D244F962800B818E1 /* Errors.swift in Sources */,
 				DFD067CD244AF8CA00173B21 /* FBSStyling.swift in Sources */,
 				DF09A941243A5097003FCFE6 /* NSView+Constraints.swift in Sources */,
+				DF03B53F2473126A0028FB07 /* AsyncOperation.swift in Sources */,
+				DF03B541247312A50028FB07 /* ValidateOperation.swift in Sources */,
 				DF34287F2438D79B00B911A7 /* Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,7 +892,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"FlatAero/Preview Content\"";
 				DEVELOPMENT_TEAM = 8QAD36SMXZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -895,7 +931,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"FlatAero/Preview Content\"";
 				DEVELOPMENT_TEAM = 8QAD36SMXZ;
 				ENABLE_HARDENED_RUNTIME = YES;

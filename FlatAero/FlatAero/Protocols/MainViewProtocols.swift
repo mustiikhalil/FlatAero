@@ -17,5 +17,5 @@ protocol MainViewControllerPresenterDelegate: class {}
 protocol MainViewControllerImportsDelegate: class {}
 
 protocol MainViewControllerDecodeDelegate: class {
-  func decode() -> Bool
+  func fetchData() -> ImportedData
 }
