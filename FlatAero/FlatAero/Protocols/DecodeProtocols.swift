@@ -9,7 +9,6 @@
 import Foundation
 
 protocol DecodeViewPresenterDelegate: Presenter {
-  var importedData: ImportedData? { get set }
   var type: Flat.ParseType { get set }
   func decode()
 }

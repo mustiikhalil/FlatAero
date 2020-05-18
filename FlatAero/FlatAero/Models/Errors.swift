@@ -9,7 +9,8 @@
 import Foundation
 
 enum Errors: Error, LocalizedError {
-  case invalidArrayInput, libraryError(e: Error), schemaRequiresRoot, flatAeroCantHandleImports, couldntOpenFile
+  case invalidArrayInput, libraryError(e: Error), schemaRequiresRoot,
+  flatAeroCantHandleImports, couldntOpenFile, importedDataNotFound, invalidTableOrBuffer, noInputPassedToDecode
   
   var errorDescription: String? {
     switch self {
@@ -27,6 +28,15 @@ enum Errors: Error, LocalizedError {
       
     case .couldntOpenFile:
       return "Couldnt open file"
+    
+    case .importedDataNotFound:
+      return "Couldnt import data! Something terrible happened!"
+      
+    case .invalidTableOrBuffer:
+      return "Invalid Data! Something terrible happened!"
+      
+    case .noInputPassedToDecode:
+      return "Ooooops! Our operations arent working please report this issue to flataero!"
     }
   }
 }

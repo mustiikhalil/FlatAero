@@ -10,8 +10,13 @@ import Foundation
 
 class DecodeViewPresenter: NSObject, DecodeViewPresenterDelegate {
   
-  var importedData: ImportedData?
   var type: Flat.ParseType = .flat
+  
+  var operationQueue: OperationQueue = {
+    let op = OperationQueue()
+    op.name = "space.mmk.decode-queue"
+    return op
+  }()
   
   weak var controller: DecodeViewControllerDelegate?
   weak var parent: MainViewControllerDecodeDelegate?
@@ -23,18 +28,20 @@ class DecodeViewPresenter: NSObject, DecodeViewPresenterDelegate {
   
   func decode() {
     Logging.logger.info("user pressed decode with type: \(type)")
-    guard let isValid = parent?.decode(),
-      isValid else {
-        Logging.logger.warning("Decoded pressed without a valid table or buffer")
-        return
+    let validateOperation = ValidateOperation(data: parent?.fetchData())
+    let decodeOperation = DecodeOperation(decoderType: type)
+    
+    decodeOperation.onResult = { [weak self] result in
+      switch result {
+      case .success(let str):
+        self?.controller?.parsedBuffer(str)
+        
+      case .failure(let err):
+        NotificationCenter.default.post(name: .flatAeroError, object: err)
+        
+      }
     }
-    guard let table = importedData?.table, var buffer = importedData?.buffer else { return }
-    let flat = Flat(schema: Schema(input: table))
-    do {
-      let str = try flat.parser(&buffer, type: type)
-      controller?.parsedBuffer(str)
-    } catch {
-      NotificationCenter.default.post(name: .flatAeroError, object: error)
-    }
+    validateOperation >>> decodeOperation
+    operationQueue.addOperations([validateOperation, decodeOperation], waitUntilFinished: false)
   }
 }
