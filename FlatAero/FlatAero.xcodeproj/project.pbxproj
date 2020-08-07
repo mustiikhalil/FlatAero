@@ -165,6 +165,9 @@
 		DF03B542247312B60028FB07 /* ChainedAsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedAsyncOperation.swift; sourceTree = "<group>"; };
 		DF09A940243A5097003FCFE6 /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		DF0E16B4244DACB4004EE7D4 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
+		DF0FF20B24E10BD9006C0C5E /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = ../../../flat/include/flat/JSON.h; sourceTree = "<group>"; };
+		DF0FF20C24E10BD9006C0C5E /* variables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variables.h; path = ../../../flat/include/flat/variables.h; sourceTree = "<group>"; };
+		DF0FF20D24E10BD9006C0C5E /* flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = flat.h; path = ../../../flat/include/flat/flat.h; sourceTree = "<group>"; };
 		DF269FB0244664100001C5A8 /* Colors+extenion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+extenion.swift"; sourceTree = "<group>"; };
 		DF269FC0244665900001C5A8 /* NSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLabel.swift; sourceTree = "<group>"; };
 		DF269FC2244665BA0001C5A8 /* ImportFromUintArrayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromUintArrayController.swift; sourceTree = "<group>"; };
@@ -201,9 +204,6 @@
 		DFAEDE46244E593D00B8E8CA /* ImportFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFiles.swift; sourceTree = "<group>"; };
 		DFD067CC244AF8CA00173B21 /* FBSStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSStyling.swift; sourceTree = "<group>"; };
 		DFE2C72A240C1BD300EDD925 /* FlatAero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatAero-Bridging-Header.h"; sourceTree = "<group>"; };
-		DFE2C72F240C1D4000EDD925 /* variables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variables.h; path = ../../../flat/src/flat/variables.h; sourceTree = "<group>"; };
-		DFE2C730240C1D4000EDD925 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = ../../../flat/src/flat/JSON.h; sourceTree = "<group>"; };
-		DFE2C731240C1D4000EDD925 /* flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = flat.h; path = ../../../flat/src/flat/flat.h; sourceTree = "<group>"; };
 		DFE2C732240C1F6D00EDD925 /* FLAT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAT.xcodeproj; path = ../flat/FLAT.xcodeproj; sourceTree = "<group>"; };
 		DFE2C755240C205D00EDD925 /* FlatWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatWrapper.swift; sourceTree = "<group>"; };
 		DFF27C172442F6B30039FE42 /* ImportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportController.swift; sourceTree = "<group>"; };
@@ -438,9 +438,9 @@
 		DFE2C729240C1BC100EDD925 /* C_Link */ = {
 			isa = PBXGroup;
 			children = (
-				DFE2C731240C1D4000EDD925 /* flat.h */,
-				DFE2C730240C1D4000EDD925 /* JSON.h */,
-				DFE2C72F240C1D4000EDD925 /* variables.h */,
+				DF0FF20D24E10BD9006C0C5E /* flat.h */,
+				DF0FF20B24E10BD9006C0C5E /* JSON.h */,
+				DF0FF20C24E10BD9006C0C5E /* variables.h */,
 				DFE2C72A240C1BD300EDD925 /* FlatAero-Bridging-Header.h */,
 				DFE2C755240C205D00EDD925 /* FlatWrapper.swift */,
 				DFF2D8A8240C362E00ADF561 /* Wrapper.h */,
