@@ -7,7 +7,7 @@
 //
 
 #import "Wrapper.h"
-#import "flat/flat.h"
+#import "flat.h"
 #import <Foundation/Foundation.h>
 
 @implementation Wrapper

@@ -15,3 +15,4 @@ flat/flatbuffers-build
 **/cmake-build-debug
 .vscode
 **/keys.mon
+**/node_modules
