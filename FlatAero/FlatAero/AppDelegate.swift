@@ -11,7 +11,7 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
   
-  static let size = NSRect(x: 0, y: 0, width: 940, height: 500)
+  static let size = NSRect(x: 0, y: 0, width: 1000, height: 500)
   
   var window: NSWindow!
   var mainRouter: MainViewRouter!
