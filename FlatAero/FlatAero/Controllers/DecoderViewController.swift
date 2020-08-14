@@ -12,7 +12,7 @@ class DecoderViewController: NSViewController, DecodeViewControllerDelegate {
   
   lazy var decodedLabel: NSLabel = {
     let lbl = NSLabel()
-    lbl.stringValue = "Decoded Flatbuffer"
+    lbl.stringValue = "Decoded FlatBuffer"
     lbl.translatesAutoresizingMaskIntoConstraints = false
     lbl.heightAnchor.constraint(equalToConstant: 20).isActive = true
     return lbl
