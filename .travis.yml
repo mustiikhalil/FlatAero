@@ -22,3 +22,10 @@ matrix:
       script:
       - cd flat
       - bash build.sh
+
+    - language: generic
+      os: linux
+      install:
+      - install.sh
+      script:
+      - script.sh
