@@ -1,3 +1,4 @@
+source ~/.nvm/nvm.sh
 ls
 pwd
 which node
@@ -11,9 +12,5 @@ pwd
 which node
 node -v
 yarn -v
-
-cd ../../..
-cd .nvm/versions/node
-ls
 
 node_modules/.bin/eslint electron/** --ext .js
