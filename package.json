@@ -1,0 +1,11 @@
+{
+  "name": "FlatAero",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mustiikhalil/FlatAero.git",
+  "author": "mustii <mustii@mmk.one>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.13.0"
+  }
+}

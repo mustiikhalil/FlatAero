@@ -7,6 +7,7 @@ install_languages() {
 
   sudo apt update
 
+  # Install nodeJS and yarn
   wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   source ~/.nvm/nvm.sh
   nvm install node
@@ -16,7 +17,7 @@ install_languages() {
   yarn config set prefix ~/.yarn -g
   export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-  # install swift
+  # Install swift
   sudo apt-get install \
           binutils \
           git \
@@ -57,10 +58,7 @@ install_formatters() {
   yarn -v
   node -v
 
-  # Install required formatters
-  sudo yarn global add eslint --prefix /usr/local
-
-  yarn i
+  yarn install
   pip install pylint
 }
 
