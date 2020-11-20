@@ -55,6 +55,7 @@ install_formatters() {
   cd ..
 
   which yarn
+  which node
   yarn -v
   node -v
 
