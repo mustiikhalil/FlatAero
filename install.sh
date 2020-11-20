@@ -42,8 +42,11 @@ install_languages() {
   export PATH="~/swiftbuild/swift-5.3.1-RELEASE-ubuntu16.04/usr/bin:$PATH"
 
   swift --version
-
   yarn -v
+  node -v
+
+  nvm alias default node
+  nvm use default
 }
 
 install_formatters() {
