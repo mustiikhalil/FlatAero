@@ -3,6 +3,7 @@ pwd
 which node
 node -v
 yarn -v
+
 nvm alias default node
 nvm use default
 

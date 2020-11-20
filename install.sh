@@ -8,14 +8,9 @@ install_languages() {
   sudo apt update
 
   # Install nodeJS and yarn
-  wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
-  source ~/.nvm/nvm.sh
-  nvm install node
-  node --version
-  curl -o- -L https://yarnpkg.com/install.sh | bash
-  export PATH="$HOME/.yarn/bin:$PATH"
-  yarn config set prefix ~/.yarn -g
-  export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+  curl -o ~/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh
+  bash -c "nvm use node" || true
+  bash -c "source ~/.nvm/nvm.sh; nvm install node; node --version"
 
   # Install swift
   sudo apt-get install \
