@@ -26,6 +26,6 @@ matrix:
     - language: generic
       os: linux
       install:
-      - install.sh
+      - bash install.sh
       script:
-      - script.sh
+      - bash script.sh
