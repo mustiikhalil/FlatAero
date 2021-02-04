@@ -10,6 +10,6 @@ import Foundation
 
 enum TypesOfDisplayers: Int {
   case file, array
-  
+
   static let types = ["Import File", "UInt 8 Array"]
 }

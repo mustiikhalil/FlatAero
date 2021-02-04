@@ -8,32 +8,37 @@
 
 import Foundation
 
-protocol ImportPresenterDelegate: Presenter {
-  func switchDisplayedControllers(of type: Int)
-  func prepareData() -> ImportedData
+struct SelectedData {
+  var decoding: TypesOfDisplayers
+  var data: FBSData
 }
 
-protocol ImportControllerDelegate: class {
-  func fetchData() -> ImportedData
+protocol ImportPresenterDelegate: Presenter {
+  func fetchData() -> SelectedData
+  func switchDisplayedControllers(of type: Int)
+}
+
+protocol ImportControllerDelegate: AnyObject {
+  func fetchData() -> SelectedData
   func should(displayController isHidden: Bool)
 }
 
 // MARK: - Delegates for containers
 
-protocol ImportUIntControllerDelegate: class, PresentableFbs {}
+protocol ImportUIntControllerDelegate: AnyObject, PresentableFbs {}
 
 protocol ImportUIntArrayPresenterDelegate: Presenter, SetableFbs {
-  var data: ImportedData { get }
+  var data: ImportedArrayData { get }
   var fbsFile: String? { get set }
   var binaryData: [UInt8] { get set }
 }
 
-protocol ImportBinaryControllerDelegate: class, PresentableFbs {}
+protocol ImportBinaryControllerDelegate: AnyObject, PresentableFbs {}
 
 protocol ImportBinaryPresenterDelegate: Presenter, SetableFbs {
+  var data: ImportedNSData { get }
   var fbsFile: String? { get set }
   var binaryFile: Data? { get set }
-  var data: ImportedData { get }
 }
 
 protocol PresentableFbs {

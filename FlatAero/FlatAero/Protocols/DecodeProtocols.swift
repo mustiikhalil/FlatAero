@@ -13,6 +13,7 @@ protocol DecodeViewPresenterDelegate: Presenter {
   func decode()
 }
 
-protocol DecodeViewControllerDelegate: class {
+protocol DecodeViewControllerDelegate: AnyObject {
+//  var type
   func parsedBuffer(_ str: String)
 }

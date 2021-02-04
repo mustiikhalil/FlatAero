@@ -11,16 +11,16 @@ import Foundation
 infix operator >>>
 
 public class BaseOperation: Operation {
-  
+
   fileprivate var lockQueue = DispatchQueue(label: "space.mmk.lock")
   fileprivate var _isExecuting = false
   fileprivate var _isFinished = false
   fileprivate var _isAsynchronous = false
   fileprivate var _isCancelled = false
-  
+
   public override var isExecuting: Bool {
     get {
-      return lockQueue.sync { _isExecuting }
+      lockQueue.sync { _isExecuting }
     }
     set {
       willChangeValue(forKey: "isExecuting")
@@ -30,10 +30,10 @@ public class BaseOperation: Operation {
       didChangeValue(forKey: "isExecuting")
     }
   }
-  
+
   public override var isFinished: Bool {
     get {
-      return lockQueue.sync { _isFinished }
+      lockQueue.sync { _isFinished }
     }
     set {
       willChangeValue(forKey: "isFinished")
@@ -45,7 +45,7 @@ public class BaseOperation: Operation {
   }
   public override var isAsynchronous: Bool {
     get {
-      return lockQueue.sync { _isAsynchronous }
+      lockQueue.sync { _isAsynchronous }
     }
     set {
       willChangeValue(forKey: "isAsynchronous")
@@ -55,10 +55,10 @@ public class BaseOperation: Operation {
       didChangeValue(forKey: "isAsynchronous")
     }
   }
-  
+
   public override var isCancelled: Bool {
     get {
-      return lockQueue.sync { _isCancelled }
+      lockQueue.sync { _isCancelled }
     }
     set {
       willChangeValue(forKey: "isCancelled")
@@ -68,15 +68,15 @@ public class BaseOperation: Operation {
       didChangeValue(forKey: "isCancelled")
     }
   }
-  
+
   public func executing(_ isExecuting: Bool) {
     self.isExecuting = isExecuting
-    self.isFinished = !isExecuting
+    isFinished = !isExecuting
   }
 }
 
 extension OperationQueue {
-  
+
   public func cancelAllOperationsWithDependencies() {
     for operation in operations.reversed() {
       operation.cancel()
@@ -85,7 +85,7 @@ extension OperationQueue {
 }
 
 extension Operation {
-  
+
   /// Adds a dependency for the operation, the lhs would be a dependency to rhs
   /// - Parameters:
   ///   - lhs: Operation
