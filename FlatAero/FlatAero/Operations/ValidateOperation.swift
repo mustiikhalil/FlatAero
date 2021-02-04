@@ -8,15 +8,15 @@
 
 import Foundation
 
-class ValidateOperation: AsyncOperation<ImportedData, Error> {
-  
-  fileprivate var data: ImportedData?
-  
-  init(data: ImportedData?) {
+class ValidateOperation<T>: AsyncOperation<T, Error> where T: FBSData {
+
+  fileprivate var data: T?
+
+  init(data: T?) {
     self.data = data
     super.init()
   }
-  
+
   override func main() {
     guard let data = data else {
       Logging.logger.warning("Failed to pass data into validate operation")

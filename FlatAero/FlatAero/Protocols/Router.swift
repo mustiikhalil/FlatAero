@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Presenter: class {}
+protocol Presenter: AnyObject {}
 
 protocol Router {
   func start()

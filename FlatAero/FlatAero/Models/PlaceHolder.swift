@@ -10,7 +10,7 @@ import Foundation
 
 struct PlaceHolder {
   static let fbsTable =
-  """
+    """
     union Favorite { Music, Movie }
 
     table Music {
@@ -30,9 +30,9 @@ struct PlaceHolder {
     }
     root_type User;
     """
-  
+
   static let exampleArray =
-  """
+    """
     Enter an Array without brackets separating each Uint by a comma
     """
 }

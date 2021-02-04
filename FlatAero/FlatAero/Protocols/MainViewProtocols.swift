@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol MainViewRouterDelegate: class {}
+protocol MainViewRouterDelegate: AnyObject {}
 
-protocol MainViewPresenterDelegate: class {}
+protocol MainViewPresenterDelegate: AnyObject {}
 
-protocol MainViewControllerPresenterDelegate: class {}
+protocol MainViewControllerPresenterDelegate: AnyObject {}
 
-protocol MainViewControllerImportsDelegate: class {}
+protocol MainViewControllerImportsDelegate: AnyObject {}
 
-protocol MainViewControllerDecodeDelegate: class {
-  func fetchData() -> ImportedData
+protocol MainViewControllerDecodeDelegate: AnyObject {
+  func fetchData() -> SelectedData
 }

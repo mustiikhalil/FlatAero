@@ -8,15 +8,15 @@
 
 import Foundation
 
-class DecodeOperation: ChainedAsyncOperation<ImportedData, String, Error> {
-  
+class DecodeOperation: ChainedAsyncOperation<ImportedArrayData, String, Error> {
+
   fileprivate var type: Flat.ParseType
-  
+
   init(decoderType type: Flat.ParseType) {
     self.type = type
     super.init()
   }
-  
+
   override func main() {
     guard let input = input else {
       finish(with: .failure(Errors.noInputPassedToDecode))

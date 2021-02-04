@@ -9,21 +9,24 @@
 import Foundation
 
 class ImportPresenter: NSObject, ImportPresenterDelegate {
-  
+
   weak var controller: ImportControllerDelegate?
   weak var parent: MainViewControllerImportsDelegate?
-  
-  init(importControllerDelegate: ImportControllerDelegate, parent parentDelegate: MainViewControllerImportsDelegate) {
+
+  init(
+    importControllerDelegate: ImportControllerDelegate,
+    parent parentDelegate: MainViewControllerImportsDelegate)
+  {
     controller = importControllerDelegate
     parent = parentDelegate
   }
-  
+
   func switchDisplayedControllers(of type: Int) {
     guard let selection = TypesOfDisplayers(rawValue: type) else { return }
     controller?.should(displayController: selection == .file)
   }
-  
-  func prepareData() -> ImportedData {
+
+  func fetchData() -> SelectedData {
     guard let controller = controller else { fatalError("import delegate failed") }
     return controller.fetchData()
   }

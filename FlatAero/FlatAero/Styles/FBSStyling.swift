@@ -9,5 +9,5 @@
 import Cocoa
 
 struct FBSStyling: Styling {
-  
+
 }

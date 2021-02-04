@@ -8,15 +8,18 @@
 
 import Foundation
 
-protocol TextPresenterDelegate: class {}
-protocol TextPresenterControllerDelegate: class {}
+protocol TextPresenterDelegate: AnyObject {}
+protocol TextPresenterControllerDelegate: AnyObject {}
 
 class ImportFBSTextPresenter: NSObject, TextPresenterDelegate {
-  
+
   weak var controller: TextPresenterControllerDelegate?
   weak var mainPresenter: MainViewPresenterDelegate?
-  
-  init(controller: TextPresenterControllerDelegate, mainPresenter: MainViewPresenterDelegate?) {
+
+  init(
+    controller: TextPresenterControllerDelegate,
+    mainPresenter: MainViewPresenterDelegate?)
+  {
     self.controller = controller
     self.mainPresenter = mainPresenter
   }

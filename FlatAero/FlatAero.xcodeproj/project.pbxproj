@@ -51,6 +51,7 @@
 		DF788369244F8F9C00B818E1 /* DecodeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF788368244F8F9C00B818E1 /* DecodeViewPresenter.swift */; };
 		DF78836B244F900900B818E1 /* DecodeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78836A244F900900B818E1 /* DecodeProtocols.swift */; };
 		DF78836D244F962800B818E1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78836C244F962800B818E1 /* Errors.swift */; };
+		DF7F062E25CC796000E0D3D6 /* ConvertOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F062D25CC796000E0D3D6 /* ConvertOperation.swift */; };
 		DF95C949240D77BE009FA3C5 /* FlatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF95C948240D77BE009FA3C5 /* FlatTests.swift */; };
 		DFA8BDB0247315750006D34D /* DecodeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8BDAF247315750006D34D /* DecodeOperation.swift */; };
 		DFAEDE37244E56C800B8E8CA /* FlatAeroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAEDE36244E56C800B8E8CA /* FlatAeroButton.swift */; };
@@ -197,6 +198,7 @@
 		DF788368244F8F9C00B818E1 /* DecodeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeViewPresenter.swift; sourceTree = "<group>"; };
 		DF78836A244F900900B818E1 /* DecodeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeProtocols.swift; sourceTree = "<group>"; };
 		DF78836C244F962800B818E1 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		DF7F062D25CC796000E0D3D6 /* ConvertOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertOperation.swift; sourceTree = "<group>"; };
 		DF95C948240D77BE009FA3C5 /* FlatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatTests.swift; sourceTree = "<group>"; };
 		DFA8BDAF247315750006D34D /* DecodeOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeOperation.swift; sourceTree = "<group>"; };
 		DFAEDE36244E56C800B8E8CA /* FlatAeroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatAeroButton.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				DF03B544247312F60028FB07 /* BaseOperations */,
 				DF03B540247312A50028FB07 /* ValidateOperation.swift */,
 				DFA8BDAF247315750006D34D /* DecodeOperation.swift */,
+				DF7F062D25CC796000E0D3D6 /* ConvertOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				DFF27C182442F6B30039FE42 /* ImportController.swift in Sources */,
 				DF78836D244F962800B818E1 /* Errors.swift in Sources */,
 				DFD067CD244AF8CA00173B21 /* FBSStyling.swift in Sources */,
+				DF7F062E25CC796000E0D3D6 /* ConvertOperation.swift in Sources */,
 				DF09A941243A5097003FCFE6 /* NSView+Constraints.swift in Sources */,
 				DF03B53F2473126A0028FB07 /* AsyncOperation.swift in Sources */,
 				DF03B541247312A50028FB07 /* ValidateOperation.swift in Sources */,
@@ -903,7 +907,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
@@ -942,7 +946,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
