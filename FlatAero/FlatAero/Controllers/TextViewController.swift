@@ -12,6 +12,62 @@ protocol TextViewcontrollerDelegate: AnyObject {
   func textDidChange(in type: ImportableTypes)
 }
 
+class SomeTextStorage: NSTextStorage {
+
+    private var storage = NSTextStorage()
+        
+    // MARK: NSTextStorage Primitive Methods
+    // https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TextStorageLayer/Tasks/Subclassing.html
+    
+    override var string: String {
+        return storage.string
+    }
+    
+    override func attributes(at location: Int, effectiveRange range: NSRangePointer?) -> [NSAttributedString.Key : Any] {
+        return storage.attributes(at: location, effectiveRange: range)
+    }
+    
+    override func replaceCharacters(in range: NSRange, with str: String) {
+        beginEditing()
+        storage.replaceCharacters(in: range, with: str)
+        let text = storage.string
+        let index = text.index(text.startIndex, offsetBy: range.location)
+        // Search the space before the given position:
+        let start = text[..<index].range(of: " ", options: .backwards)?.upperBound ?? text.startIndex
+        
+        guard index < text.endIndex else {
+            endEditing()
+            edited(.editedCharacters, range: range, changeInLength: (str as NSString).length - range.length)
+            return
+        }
+        let keyword = String(text[start...index])
+        if keyworks.contains(keyword) {
+            let newrange = NSMakeRange(start.utf16Offset(in: text), keyword.count - 1)
+            storage.addAttributes(
+                [.foregroundColor: NSColor.systemPink],
+                range: newrange)
+            edited(
+                [.editedCharacters, .editedAttributes],
+                range: range,
+                changeInLength: (str as NSString).length - range.length)
+        } else {
+            edited([.editedCharacters], range: range, changeInLength: (str as NSString).length - range.length)
+        }
+        endEditing()
+    }
+    
+    override func setAttributes(_ attrs: [NSAttributedString.Key : Any]?, range: NSRange) {
+        beginEditing()
+        storage.setAttributes(attrs, range: range)
+        edited(.editedAttributes, range: range, changeInLength: 0)
+        endEditing()
+    }
+    
+    private let keyworks: Set<String> = [
+        "final", "class", "private", "public"
+    ]
+}
+
 class TextViewController: NSViewController, NSTextViewDelegate {
 
   var styler: Styling!
@@ -26,7 +82,7 @@ class TextViewController: NSViewController, NSTextViewDelegate {
 
   weak var delegate: TextViewcontrollerDelegate?
 
-  fileprivate lazy var textStorage = NSTextStorage()
+  fileprivate lazy var textStorage = SomeTextStorage()
   fileprivate lazy var layoutManager = NSLayoutManager()
   fileprivate lazy var textContainer = NSTextContainer()
   fileprivate lazy var textView: NSTextView = NSTextView(

@@ -38,7 +38,6 @@
 		DF713C89246C8FF000CAC634 /* logging.fbs in Resources */ = {isa = PBXBuildFile; fileRef = DF713C88246C8FF000CAC634 /* logging.fbs */; };
 		DF713C8C246C90F200CAC634 /* FlatBuffers in Frameworks */ = {isa = PBXBuildFile; productRef = DF713C8B246C90F200CAC634 /* FlatBuffers */; };
 		DF713C8E246C912000CAC634 /* logging_generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF713C8D246C912000CAC634 /* logging_generated.swift */; };
-		DF713C90246C96A400CAC634 /* keys.mon in Resources */ = {isa = PBXBuildFile; fileRef = DF713C8F246C93CD00CAC634 /* keys.mon */; };
 		DF75BE3D244F52E3009D6147 /* DecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF75BE3C244F52E3009D6147 /* DecoderViewController.swift */; };
 		DF75BE4D244F5437009D6147 /* PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF75BE4C244F5437009D6147 /* PlaceHolder.swift */; };
 		DF75BE4F244F54B9009D6147 /* ImportableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF75BE4E244F54B9009D6147 /* ImportableTypes.swift */; };
@@ -185,7 +184,6 @@
 		DF713C86246C8F7200CAC634 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		DF713C88246C8FF000CAC634 /* logging.fbs */ = {isa = PBXFileReference; lastKnownFileType = text; path = logging.fbs; sourceTree = "<group>"; };
 		DF713C8D246C912000CAC634 /* logging_generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logging_generated.swift; sourceTree = "<group>"; };
-		DF713C8F246C93CD00CAC634 /* keys.mon */ = {isa = PBXFileReference; explicitFileType = compiled; path = keys.mon; sourceTree = "<group>"; };
 		DF75BE3C244F52E3009D6147 /* DecoderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderViewController.swift; sourceTree = "<group>"; };
 		DF75BE4C244F5437009D6147 /* PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolder.swift; sourceTree = "<group>"; };
 		DF75BE4E244F54B9009D6147 /* ImportableTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportableTypes.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				DF009CA423FC14CA006DF207 /* FlatAero.entitlements */,
 				DF009C9D23FC14CA006DF207 /* Preview Content */,
 				DF3428802438DB9F00B911A7 /* main.swift */,
-				DF713C8F246C93CD00CAC634 /* keys.mon */,
 				DF713C86246C8F7200CAC634 /* Logging.swift */,
 				DF713C8D246C912000CAC634 /* logging_generated.swift */,
 				DF713C88246C8FF000CAC634 /* logging.fbs */,
@@ -653,7 +650,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF713C90246C96A400CAC634 /* keys.mon in Resources */,
 				DF713C89246C8FF000CAC634 /* logging.fbs in Resources */,
 				DF009CA223FC14CA006DF207 /* Main.storyboard in Resources */,
 				DF009C9F23FC14CA006DF207 /* Preview Assets.xcassets in Resources */,
@@ -899,7 +895,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"FlatAero/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QAD36SMXZ;
+				DEVELOPMENT_TEAM = S5LE5TDLUP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FlatAero/Info.plist;
@@ -938,7 +934,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"FlatAero/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QAD36SMXZ;
+				DEVELOPMENT_TEAM = S5LE5TDLUP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FlatAero/Info.plist;
